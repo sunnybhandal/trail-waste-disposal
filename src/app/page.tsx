@@ -24,16 +24,16 @@ export default function Home() {
             Front-load dumpsters for businesses and multi-unit properties. Show
             us your bill and we’ll beat your current price.
           </p>
-          <div className="mt-8 flex flex-row gap-3">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/#contact"
-              className="inline-flex h-12 flex-1 items-center justify-center rounded-full bg-forest px-3 text-sm font-medium text-white transition hover:bg-forest-deep sm:flex-none sm:px-6"
+              className="inline-flex h-12 items-center justify-center rounded-full bg-forest px-6 text-sm font-medium text-white transition hover:bg-forest-deep"
             >
               Get a quote
             </Link>
             <a
               href={site.phoneHref}
-              className="inline-flex h-12 flex-1 items-center justify-center rounded-full border border-line px-3 text-sm font-medium text-ink transition hover:border-forest hover:text-forest sm:flex-none sm:px-6"
+              className="inline-flex h-12 items-center justify-center rounded-full border border-line px-6 text-sm font-medium text-ink transition hover:border-forest hover:text-forest"
             >
               Call {site.phone}
             </a>
