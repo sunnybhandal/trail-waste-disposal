@@ -1,69 +1,119 @@
 import Image from "next/image";
+import Link from "next/link";
+import { AboutSection } from "@/components/AboutSection";
+import { ContactSection } from "@/components/ContactSection";
+import { Faq } from "@/components/Faq";
+import { industries, site } from "@/lib/site";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <>
+      <section
+        id="home"
+        className="mx-auto grid max-w-6xl scroll-mt-24 items-center gap-10 px-5 pb-16 pt-10 sm:px-8 sm:pb-24 sm:pt-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14 lg:pt-20"
+      >
+        <div>
+          <p className="text-xs font-medium uppercase tracking-[0.18em] text-sage">
+            Serving Calgary & Cochrane
           </p>
+          <h1 className="mt-4 font-display text-[2.35rem] leading-[1.08] text-ink sm:text-5xl lg:text-[3.5rem]">
+            Fast & Reliable Local Waste Disposal
+            Services
+          </h1>
+          <p className="mt-6 max-w-md text-base leading-7 text-stone sm:text-lg">
+            Front-load dumpsters for businesses and multi-unit properties. Show
+            us your bill and we’ll beat your current price.
+          </p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Link
+              href="/#contact"
+              className="inline-flex h-12 items-center justify-center rounded-full bg-forest px-6 text-sm font-medium text-white transition hover:bg-forest-deep"
+            >
+              Get a quote
+            </Link>
+            <a
+              href={site.phoneHref}
+              className="inline-flex h-12 items-center justify-center rounded-full border border-line px-6 text-sm font-medium text-ink transition hover:border-forest hover:text-forest"
+            >
+              Call {site.phone}
+            </a>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+
+        <div className="relative">
+          <div className="flex items-center justify-center rounded-3xl bg-cream px-4 py-8 sm:px-6 sm:py-10">
             <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
+              src="/images/truck.png"
+              alt="White front-load garbage truck used for commercial pickup"
+              width={555}
+              height={346}
+              priority
+              className="h-auto w-full object-contain"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <section
+        id="how-it-works"
+        className="scroll-mt-24 border-t border-line bg-cream/70"
+      >
+        <div className="mx-auto grid max-w-6xl gap-12 px-5 py-16 sm:px-8 sm:py-24 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+          <div>
+            <p className="text-xs font-medium uppercase tracking-[0.18em] text-sage">
+              How it works
+            </p>
+            <h2 className="mt-4 font-display text-4xl leading-tight text-ink sm:text-5xl">
+              What makes us different.
+            </h2>
+            <p className="mt-6 text-base leading-8 text-stone sm:text-lg">
+              Whether you manage a business, apartment complex, or multi-unit
+              property in Calgary and the surrounding areas, our team ensures
+              your waste is collected on time, every time. We guarantee no disruptions, no
+              missed pickups, and no hidden fees. When you call us, you get a
+              real person who knows your account. We’re small enough to care,
+              and experienced enough to get the job done right.
+            </p>
+          </div>
+
+          <div>
+            <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+              {industries.map((item) => (
+                <li
+                  key={item}
+                  className="rounded-2xl border border-line bg-white px-4 py-4 text-sm font-medium text-ink"
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div className="mx-auto max-w-6xl px-5 pb-16 sm:px-8 sm:pb-24">
+          <div className="rounded-3xl border border-line bg-white px-5 py-6 sm:px-8 sm:py-8">
+            <p className="text-xs font-medium uppercase tracking-[0.18em] text-sage">
+              Bottle recycling
+            </p>
+            <p className="mt-3 w-full text-base leading-7 text-stone sm:text-lg">
+              If you’re interested in bottle recycling services, please visit{" "}
+              <a
+                href={site.sisterCompany.href}
+                target="_blank"
+                rel="noreferrer"
+                className="font-medium text-forest underline decoration-line underline-offset-4 hover:decoration-forest"
+              >
+                {site.sisterCompany.name}
+              </a>{" "}
+              for more information.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <AboutSection />
+      <ContactSection />
+      <Faq />
+    </>
   );
 }
