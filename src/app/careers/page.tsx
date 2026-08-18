@@ -12,10 +12,10 @@ export default function CareersPage() {
   return (
     <section className="mx-auto grid max-w-6xl gap-12 px-5 py-12 sm:px-8 sm:py-20 lg:grid-cols-2">
       <div>
-        <p className="text-xs font-medium uppercase tracking-[0.18em] text-sage">
+        <h1 className="font-display text-4xl leading-tight text-ink sm:text-5xl">
           Careers
-        </p>
-        <p className="mt-4 text-base leading-8 text-stone sm:text-lg">
+        </h1>
+        <p className="mt-6 text-base leading-8 text-stone sm:text-lg">
           Trail Waste Disposal is always looking for dependable, hardworking
           individuals to join our growing team in Calgary. We value safety,
           professionalism, and reliability.

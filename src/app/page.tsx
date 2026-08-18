@@ -29,7 +29,7 @@ export default function Home() {
           <div className="mt-8">
             <Link
               href="/#contact"
-              className="inline-flex h-12 items-center justify-center rounded-full bg-forest px-6 text-sm font-medium text-white transition hover:bg-forest-deep"
+              className="inline-flex h-12 cursor-pointer items-center justify-center rounded-full bg-forest px-6 text-sm font-medium text-white transition hover:bg-forest-deep"
             >
               Get a Quote
             </Link>
@@ -63,26 +63,26 @@ export default function Home() {
           </h2>
           <ol className="mt-8 max-w-3xl space-y-5">
             <li className="flex items-baseline gap-3">
-              <span className="font-display text-xl leading-snug text-ink sm:text-2xl">
+              <span className="font-display text-2xl leading-snug text-ink">
                 1.
               </span>
-              <p className="font-display text-xl font-medium leading-snug text-forest sm:text-2xl">
+              <p className="font-display text-2xl font-medium leading-snug text-forest">
                 Provide your details in our Contact Form
               </p>
             </li>
             <li className="flex items-baseline gap-3">
-              <span className="font-display text-xl leading-snug text-ink sm:text-2xl">
+              <span className="font-display text-2xl leading-snug text-ink">
                 2.
               </span>
-              <p className="font-display text-xl font-medium leading-snug text-forest sm:text-2xl">
+              <p className="font-display text-2xl font-medium leading-snug text-forest">
                 Someone from our team will contact you and understand your needs
               </p>
             </li>
             <li className="flex items-baseline gap-3">
-              <span className="font-display text-xl leading-snug text-ink sm:text-2xl">
+              <span className="font-display text-2xl leading-snug text-ink">
                 3.
               </span>
-              <p className="font-display text-xl font-medium leading-snug text-forest sm:text-2xl">
+              <p className="font-display text-2xl font-medium leading-snug text-forest">
                 Once we confirm our availability, we’ll create a set pickup
                 schedule that fits your needs
               </p>
@@ -110,7 +110,7 @@ export default function Home() {
                 alt="Trail Bottle Depot"
                 width={222}
                 height={96}
-                className="h-16 w-auto sm:h-[4.75rem]"
+                className="h-[4.75rem] w-auto"
               />
             </a>
             <div className="min-w-0 flex-1">

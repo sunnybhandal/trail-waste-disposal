@@ -284,9 +284,8 @@ export function ContactForm() {
       ) : null}
 
       <div className="pt-2">
-        <div className="mb-2 flex items-center justify-between text-xs font-medium text-stone">
-          <span>Step {step} of 2</span>
-          <span>{step === 1 ? "Your details" : "Service details"}</span>
+        <div className="mb-2 text-xs font-medium text-stone">
+          Step {step} of 2
         </div>
         <div className="h-1.5 overflow-hidden rounded-full bg-line">
           <div

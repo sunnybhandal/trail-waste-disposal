@@ -31,7 +31,22 @@ body {
   font-family: var(--font-sans), system-ui, sans-serif;
 }
 
+button {
+  cursor: pointer;
+}
+
 ::selection {
   background: #178ea3;
   color: #ffffff;
+}
+
+.select-scroll {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+}
+
+.select-scroll::-webkit-scrollbar {
+  display: none;
 }

@@ -76,13 +76,13 @@ export function Header() {
         <div className="flex items-center gap-2">
           <a
             href={site.phoneHref}
-            className="hidden h-10 items-center rounded-full bg-forest px-4 text-sm font-medium text-white transition-colors hover:bg-forest-deep lg:inline-flex"
+            className="hidden h-10 cursor-pointer items-center rounded-full bg-forest px-4 text-sm font-medium text-white transition-colors hover:bg-forest-deep lg:inline-flex"
           >
             {site.phone}
           </a>
           <Link
             href="/login"
-            className="hidden h-10 items-center rounded-full border border-line px-4 text-sm font-medium text-ink transition-colors hover:border-forest hover:text-forest lg:inline-flex"
+            className="hidden h-10 cursor-pointer items-center rounded-full border border-line px-4 text-sm font-medium text-ink transition-colors hover:border-forest hover:text-forest lg:inline-flex"
           >
             Login
           </Link>
@@ -130,13 +130,13 @@ export function Header() {
               <Link
                 href="/login"
                 onClick={() => setOpen(false)}
-                className="inline-flex h-12 items-center justify-center rounded-full border border-line text-base font-medium text-ink"
+                className="inline-flex h-12 cursor-pointer items-center justify-center rounded-full border border-line text-base font-medium text-ink"
               >
                 Login
               </Link>
               <a
                 href={site.phoneHref}
-                className="inline-flex h-12 items-center justify-center rounded-full bg-forest text-base font-medium text-white"
+                className="inline-flex h-12 cursor-pointer items-center justify-center rounded-full bg-forest text-base font-medium text-white"
               >
                 {site.phone}
               </a>

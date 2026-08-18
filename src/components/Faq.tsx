@@ -36,7 +36,7 @@ export function Faq() {
                     <span>{item.question}</span>
                     <span
                       aria-hidden="true"
-                      className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-line bg-white text-forest transition-transform ${isOpen ? "rotate-180" : ""}`}
+                      className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-line bg-white text-forest transition-transform duration-300 ease-out ${isOpen ? "rotate-180" : ""}`}
                     >
                       <svg
                         viewBox="0 0 16 16"
@@ -56,12 +56,19 @@ export function Faq() {
                   id={panelId}
                   role="region"
                   aria-labelledby={buttonId}
-                  hidden={!isOpen}
-                  className={isOpen ? "pb-5" : undefined}
+                  className={`grid transition-[grid-template-rows] duration-300 ease-out ${
+                    isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                  }`}
                 >
-                  <p className="max-w-2xl text-base leading-7 text-stone">
-                    {item.answer}
-                  </p>
+                  <div className="min-h-0 overflow-hidden">
+                    <p
+                      className={`max-w-2xl pb-5 text-base leading-7 text-stone transition-opacity duration-300 ease-out ${
+                        isOpen ? "opacity-100" : "opacity-0"
+                      }`}
+                    >
+                      {item.answer}
+                    </p>
+                  </div>
                 </div>
               </div>
             );
