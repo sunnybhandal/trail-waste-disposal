@@ -37,15 +37,14 @@ export function Header() {
         <div className="flex items-center gap-2">
           <a
             href={site.phoneHref}
-            className="inline-flex h-10 items-center rounded-full bg-forest px-4 text-sm font-medium text-white transition-colors hover:bg-forest-deep"
+            className="hidden h-10 items-center rounded-full bg-forest px-4 text-sm font-medium text-white transition-colors hover:bg-forest-deep lg:inline-flex"
           >
-            <span className="sm:hidden">Call</span>
-            <span className="hidden sm:inline">{site.phone}</span>
+            {site.phone}
           </a>
           <Link
             href="/login"
             aria-label="Client account login"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line text-forest transition-colors hover:border-forest hover:bg-cream"
+            className="hidden h-10 w-10 items-center justify-center rounded-full border border-line text-forest transition-colors hover:border-forest hover:bg-cream lg:inline-flex"
           >
             <svg
               viewBox="0 0 24 24"
@@ -101,19 +100,6 @@ export function Header() {
                 {link.label}
               </Link>
             ))}
-            <Link
-              href="/login"
-              onClick={() => setOpen(false)}
-              className="rounded-xl px-3 py-3 text-lg text-ink hover:bg-cream"
-            >
-              Client login
-            </Link>
-            <a
-              href={site.phoneHref}
-              className="mt-3 rounded-xl bg-forest px-3 py-3 text-center text-lg text-white"
-            >
-              Call {site.phone}
-            </a>
           </nav>
         </div>
       ) : null}

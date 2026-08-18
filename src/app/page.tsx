@@ -24,16 +24,16 @@ export default function Home() {
             Front-load dumpsters for businesses and multi-unit properties. Show
             us your bill and we’ll beat your current price.
           </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-8 flex flex-row gap-3">
             <Link
               href="/#contact"
-              className="inline-flex h-12 items-center justify-center rounded-full bg-forest px-6 text-sm font-medium text-white transition hover:bg-forest-deep"
+              className="inline-flex h-12 flex-1 items-center justify-center rounded-full bg-forest px-3 text-sm font-medium text-white transition hover:bg-forest-deep sm:flex-none sm:px-6"
             >
               Get a quote
             </Link>
             <a
               href={site.phoneHref}
-              className="inline-flex h-12 items-center justify-center rounded-full border border-line px-6 text-sm font-medium text-ink transition hover:border-forest hover:text-forest"
+              className="inline-flex h-12 flex-1 items-center justify-center rounded-full border border-line px-3 text-sm font-medium text-ink transition hover:border-forest hover:text-forest sm:flex-none sm:px-6"
             >
               Call {site.phone}
             </a>
@@ -58,36 +58,25 @@ export default function Home() {
         id="how-it-works"
         className="scroll-mt-24 border-t border-line bg-cream/70"
       >
-        <div className="mx-auto grid max-w-6xl gap-12 px-5 py-16 sm:px-8 sm:py-24 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-          <div>
-            <p className="text-xs font-medium uppercase tracking-[0.18em] text-sage">
-              How it works
-            </p>
-            <h2 className="mt-4 font-display text-4xl leading-tight text-ink sm:text-5xl">
-              What makes us different.
-            </h2>
-            <p className="mt-6 text-base leading-8 text-stone sm:text-lg">
-              Whether you manage a business, apartment complex, or multi-unit
-              property in Calgary and the surrounding areas, our team ensures
-              your waste is collected on time, every time. We guarantee no disruptions, no
-              missed pickups, and no hidden fees. When you call us, you get a
-              real person who knows your account. We’re small enough to care,
-              and experienced enough to get the job done right.
-            </p>
-          </div>
-
-          <div>
-            <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-              {industries.map((item) => (
-                <li
-                  key={item}
-                  className="rounded-2xl border border-line bg-white px-4 py-4 text-sm font-medium text-ink"
-                >
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
+          <p className="text-xs font-medium uppercase tracking-[0.18em] text-sage">
+            How it works
+          </p>
+          <h2 className="mt-4 max-w-3xl font-display text-4xl leading-tight text-ink sm:text-5xl">
+            What makes us different.
+          </h2>
+          <p className="mt-6 max-w-3xl text-base leading-8 text-stone sm:text-lg">
+            Whether you manage a business, apartment complex, or multi-unit
+            property in Calgary and the surrounding areas, our team ensures
+            your waste is collected on time, every time. We guarantee no disruptions, no
+            missed pickups, and no hidden fees. When you call us, you get a
+            real person who knows your account. We’re small enough to care,
+            and experienced enough to get the job done right.
+          </p>
+          <p className="mt-6 max-w-3xl text-base leading-8 text-stone sm:text-lg">
+            We handle {industries.slice(0, -1).join(", ").toLowerCase()}, and{" "}
+            {industries[industries.length - 1].toLowerCase()}.
+          </p>
         </div>
 
         <div className="mx-auto max-w-6xl px-5 pb-16 sm:px-8 sm:pb-24">
