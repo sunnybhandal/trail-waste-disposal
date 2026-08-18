@@ -1,12 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Logo } from "@/components/Logo";
 import { navLinks, site } from "@/lib/site";
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -15,9 +17,46 @@ export function Header() {
     };
   }, [open]);
 
+  useEffect(() => {
+    if (!open) {
+      return;
+    }
+
+    function onPointerDown(event: PointerEvent) {
+      if (!headerRef.current?.contains(event.target as Node)) {
+        setOpen(false);
+      }
+    }
+
+    document.addEventListener("pointerdown", onPointerDown);
+    return () => document.removeEventListener("pointerdown", onPointerDown);
+  }, [open]);
+
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 4);
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 border-b border-line/80 bg-white/90 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:h-[4.25rem] sm:px-8">
+    <header
+      ref={headerRef}
+      className={`sticky top-0 z-50 border-b border-line/80 bg-white/90 backdrop-blur-md transition-shadow ${
+        scrolled ? "shadow-[0_2px_10px_rgba(23,20,17,0.08)]" : "shadow-none"
+      }`}
+    >
+      <div className="mx-auto flex h-[4.5rem] max-w-6xl items-center justify-between px-5 sm:h-20 sm:px-8">
         <Link href="/" aria-label="Trail Waste Disposal home" onClick={() => setOpen(false)}>
           <Logo />
         </Link>
@@ -43,22 +82,9 @@ export function Header() {
           </a>
           <Link
             href="/login"
-            aria-label="Client account login"
-            className="hidden h-10 w-10 items-center justify-center rounded-full border border-line text-forest transition-colors hover:border-forest hover:bg-cream lg:inline-flex"
+            className="hidden h-10 items-center rounded-full border border-line px-4 text-sm font-medium text-ink transition-colors hover:border-forest hover:text-forest lg:inline-flex"
           >
-            <svg
-              viewBox="0 0 24 24"
-              className="h-5 w-5"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.8"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <circle cx="12" cy="8" r="3.25" />
-              <path d="M5.5 19.2c.8-3.1 3.3-5.2 6.5-5.2s5.7 2.1 6.5 5.2" />
-            </svg>
+            Login
           </Link>
           <button
             type="button"
@@ -100,6 +126,21 @@ export function Header() {
                 {link.label}
               </Link>
             ))}
+            <div className="mt-4 flex flex-col gap-3">
+              <Link
+                href="/login"
+                onClick={() => setOpen(false)}
+                className="inline-flex h-12 items-center justify-center rounded-full border border-line text-base font-medium text-ink"
+              >
+                Login
+              </Link>
+              <a
+                href={site.phoneHref}
+                className="inline-flex h-12 items-center justify-center rounded-full bg-forest text-base font-medium text-white"
+              >
+                {site.phone}
+              </a>
+            </div>
           </nav>
         </div>
       ) : null}

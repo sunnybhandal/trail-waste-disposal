@@ -3,7 +3,7 @@ import Link from "next/link";
 import { AboutSection } from "@/components/AboutSection";
 import { ContactSection } from "@/components/ContactSection";
 import { Faq } from "@/components/Faq";
-import { industries, site } from "@/lib/site";
+import { site } from "@/lib/site";
 
 export default function Home() {
   return (
@@ -20,23 +20,19 @@ export default function Home() {
             Fast & Reliable Local Waste Disposal
             Services
           </h1>
-          <p className="mt-6 max-w-md text-base leading-7 text-stone sm:text-lg">
-            Front-load dumpsters for businesses and multi-unit properties. Show
-            us your bill and we’ll beat your current price.
+          <p className="mt-5 max-w-lg font-display text-2xl leading-snug text-forest sm:text-3xl">
+            Show us your bill and we’ll beat your current price.
           </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <p className="mt-6 max-w-md text-base leading-7 text-stone sm:text-lg">
+            Front-load dumpsters for businesses and multi-unit properties.
+          </p>
+          <div className="mt-8">
             <Link
               href="/#contact"
               className="inline-flex h-12 items-center justify-center rounded-full bg-forest px-6 text-sm font-medium text-white transition hover:bg-forest-deep"
             >
-              Get a quote
+              Get a Quote
             </Link>
-            <a
-              href={site.phoneHref}
-              className="inline-flex h-12 items-center justify-center rounded-full border border-line px-6 text-sm font-medium text-ink transition hover:border-forest hover:text-forest"
-            >
-              Call {site.phone}
-            </a>
           </div>
         </div>
 
@@ -63,39 +59,77 @@ export default function Home() {
             How it works
           </p>
           <h2 className="mt-4 max-w-3xl font-display text-4xl leading-tight text-ink sm:text-5xl">
-            What makes us different.
+            Passionate About Delivering Exceptional Service
           </h2>
-          <p className="mt-6 max-w-3xl text-base leading-8 text-stone sm:text-lg">
+          <ol className="mt-8 max-w-3xl space-y-5">
+            <li className="flex items-baseline gap-3">
+              <span className="font-display text-xl leading-snug text-ink sm:text-2xl">
+                1.
+              </span>
+              <p className="font-display text-xl font-medium leading-snug text-forest sm:text-2xl">
+                Provide your details in our Contact Form
+              </p>
+            </li>
+            <li className="flex items-baseline gap-3">
+              <span className="font-display text-xl leading-snug text-ink sm:text-2xl">
+                2.
+              </span>
+              <p className="font-display text-xl font-medium leading-snug text-forest sm:text-2xl">
+                Someone from our team will contact you and understand your needs
+              </p>
+            </li>
+            <li className="flex items-baseline gap-3">
+              <span className="font-display text-xl leading-snug text-ink sm:text-2xl">
+                3.
+              </span>
+              <p className="font-display text-xl font-medium leading-snug text-forest sm:text-2xl">
+                Once we confirm our availability, we’ll create a set pickup
+                schedule that fits your needs
+              </p>
+            </li>
+          </ol>
+          <p className="mt-8 max-w-3xl text-base leading-8 text-stone sm:text-lg">
             Whether you manage a business, apartment complex, or multi-unit
             property in Calgary and the surrounding areas, our team ensures
             your waste is collected on time, every time. We guarantee no disruptions, no
-            missed pickups, and no hidden fees. When you call us, you get a
-            real person who knows your account. We’re small enough to care,
+            missed pickups, and no hidden fees. We’re small enough to care,
             and experienced enough to get the job done right.
-          </p>
-          <p className="mt-6 max-w-3xl text-base leading-8 text-stone sm:text-lg">
-            We handle {industries.slice(0, -1).join(", ").toLowerCase()}, and{" "}
-            {industries[industries.length - 1].toLowerCase()}.
           </p>
         </div>
 
         <div className="mx-auto max-w-6xl px-5 pb-16 sm:px-8 sm:pb-24">
-          <div className="rounded-3xl border border-line bg-white px-5 py-6 sm:px-8 sm:py-8">
-            <p className="text-xs font-medium uppercase tracking-[0.18em] text-sage">
-              Bottle recycling
-            </p>
-            <p className="mt-3 w-full text-base leading-7 text-stone sm:text-lg">
-              If you’re interested in bottle recycling services, please visit{" "}
-              <a
-                href={site.sisterCompany.href}
-                target="_blank"
-                rel="noreferrer"
-                className="font-medium text-forest underline decoration-line underline-offset-4 hover:decoration-forest"
-              >
-                {site.sisterCompany.name}
-              </a>{" "}
-              for more information.
-            </p>
+          <div className="flex flex-col items-start gap-6 rounded-3xl border border-line bg-white px-5 py-6 sm:flex-row sm:items-center sm:gap-10 sm:px-8 sm:py-8">
+            <a
+              href={site.sisterCompany.href}
+              target="_blank"
+              rel="noreferrer"
+              className="shrink-0"
+            >
+              <Image
+                src="/images/trail-bottle-logo.png"
+                alt="Trail Bottle Depot"
+                width={222}
+                height={96}
+                className="h-16 w-auto sm:h-[4.75rem]"
+              />
+            </a>
+            <div className="min-w-0 flex-1">
+              <p className="text-xs font-medium uppercase tracking-[0.18em] text-sage">
+                Bottle recycling
+              </p>
+              <p className="mt-3 text-base leading-7 text-stone sm:text-lg">
+                If you’re interested in bottle recycling services, please visit{" "}
+                <a
+                  href={site.sisterCompany.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-medium text-forest underline decoration-line underline-offset-4 hover:decoration-forest"
+                >
+                  {site.sisterCompany.name}
+                </a>{" "}
+                for more information.
+              </p>
+            </div>
           </div>
         </div>
       </section>

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { CareersForm } from "@/components/CareersForm";
-import { careerPerks, site } from "@/lib/site";
+import { careerPerks, careerRequirements, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Careers",
@@ -15,24 +15,31 @@ export default function CareersPage() {
         <p className="text-xs font-medium uppercase tracking-[0.18em] text-sage">
           Careers
         </p>
-        <h1 className="mt-4 font-display text-4xl leading-tight text-ink sm:text-6xl">
-          Work that stays close to home.
-        </h1>
-        <p className="mt-6 text-base leading-8 text-stone sm:text-lg">
+        <p className="mt-4 text-base leading-8 text-stone sm:text-lg">
           Trail Waste Disposal is always looking for dependable, hardworking
           individuals to join our growing team in Calgary. We value safety,
           professionalism, and reliability.
         </p>
-        <ul className="mt-8 space-y-3">
-          {careerPerks.map((perk) => (
-            <li
-              key={perk}
-              className="rounded-2xl border border-line bg-cream/70 px-5 py-4 text-ink"
-            >
-              {perk}
-            </li>
-          ))}
-        </ul>
+        <div className="mt-8 rounded-2xl border border-line bg-cream/70 px-5 py-5">
+          <p className="text-xs font-medium uppercase tracking-[0.16em] text-sage">
+            What we offer
+          </p>
+          <ul className="mt-3 space-y-2 text-ink">
+            {careerPerks.map((perk) => (
+              <li key={perk}>{perk}</li>
+            ))}
+          </ul>
+        </div>
+        <div className="mt-4 rounded-2xl border border-line bg-white px-5 py-5">
+          <p className="text-xs font-medium uppercase tracking-[0.16em] text-sage">
+            Basic requirements
+          </p>
+          <ul className="mt-3 space-y-2 text-ink">
+            {careerRequirements.map((requirement) => (
+              <li key={requirement}>{requirement}</li>
+            ))}
+          </ul>
+        </div>
         <p className="mt-8 text-sm text-stone">
           Questions? Email{" "}
           <a href={site.emailHref} className="text-forest underline">

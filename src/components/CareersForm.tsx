@@ -1,11 +1,12 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 
 const fieldClass =
   "mt-2 w-full rounded-xl border border-line bg-white px-4 py-3 text-base text-ink outline-none transition focus:border-forest";
 
 export function CareersForm() {
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const [fileName, setFileName] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">(
     "idle",
@@ -72,32 +73,40 @@ export function CareersForm() {
           className={fieldClass}
         />
       </label>
-      <label className="block text-sm font-medium text-ink">
-        Resume or cover letter
-        <span className="mt-2 flex min-h-28 flex-col items-center justify-center rounded-xl border border-dashed border-line bg-cream/60 px-4 py-6 text-center">
+      <div>
+        <p className="text-sm font-medium text-ink">Resume</p>
+        <div className="mt-2 flex min-h-28 flex-col items-center justify-center rounded-xl border border-dashed border-line bg-cream/60 px-4 py-6 text-center">
           <input
+            ref={fileInputRef}
             name="document"
             type="file"
             required
             accept=".pdf,.doc,.docx,.txt"
-            className="w-full text-sm text-stone file:mr-3 file:rounded-full file:border-0 file:bg-forest file:px-4 file:py-2 file:text-sm file:font-medium file:text-white"
+            className="sr-only"
             onChange={(event) => {
               setFileName(event.target.files?.[0]?.name ?? "");
             }}
           />
+          <button
+            type="button"
+            onClick={() => fileInputRef.current?.click()}
+            className="cursor-pointer rounded-full bg-forest px-4 py-2 text-sm font-medium text-white transition hover:bg-forest-deep"
+          >
+            Choose File
+          </button>
           {fileName ? (
-            <span className="mt-3 text-sm text-sage">{fileName}</span>
+            <p className="mt-3 text-sm text-sage">{fileName}</p>
           ) : (
-            <span className="mt-3 text-sm text-stone">
+            <p className="mt-3 text-sm text-stone">
               PDF, DOC, or DOCX up to 5MB
-            </span>
+            </p>
           )}
-        </span>
-      </label>
+        </div>
+      </div>
       <button
         type="submit"
         disabled={status === "sending"}
-        className="inline-flex h-12 w-full items-center justify-center rounded-full bg-forest text-sm font-medium text-white transition hover:bg-forest-deep disabled:opacity-70 sm:w-auto sm:px-8"
+        className="inline-flex h-12 w-full cursor-pointer items-center justify-center rounded-full bg-forest text-sm font-medium text-white transition hover:bg-forest-deep disabled:opacity-70 sm:w-auto sm:px-8"
       >
         {status === "sending" ? "Sending…" : "Submit application"}
       </button>

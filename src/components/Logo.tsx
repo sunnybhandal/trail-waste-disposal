@@ -5,22 +5,20 @@ type LogoProps = {
   markClassName?: string;
 };
 
-export function Logo({ className = "", markClassName = "h-11 w-11" }: LogoProps) {
+export function Logo({ className = "", markClassName = "h-12 w-12" }: LogoProps) {
   return (
-    <span className={`inline-flex items-center gap-2.5 ${className}`}>
+    <span className={`inline-flex items-center gap-3 ${className}`}>
       <Image
         src="/images/trail-waste-globe.png"
         alt=""
-        width={88}
-        height={88}
+        width={96}
+        height={96}
         className={`shrink-0 ${markClassName}`}
         priority
       />
-      <span className="leading-none">
-        <span className="block font-display text-[1.45rem] font-semibold tracking-tight text-forest sm:text-[1.6rem]">
-          Trail
-        </span>
-        <span className="mt-0.5 block text-[0.72rem] font-semibold uppercase tracking-[0.12em] text-ink">
+      <span className="font-logo font-extrabold leading-[0.9] tracking-[0.02em] text-[#175567]">
+        <span className="block text-[1.6rem] sm:text-[1.8rem]">Trail</span>
+        <span className="mt-0.5 block text-[1.15rem] sm:text-[1.3rem]">
           Waste Disposal
         </span>
       </span>

@@ -37,16 +37,20 @@ export function LoginForm() {
 
   return (
     <form onSubmit={onSubmit} className="space-y-5">
-      <label className="block text-sm font-medium text-ink">
-        Email or account number
+      <div>
+        <label htmlFor="login-email" className="block text-sm font-medium text-ink">
+          Email
+        </label>
         <input
-          name="account"
-          type="text"
+          id="login-email"
+          name="email"
+          type="email"
           required
-          autoComplete="username"
+          autoComplete="email"
+          placeholder=""
           className={fieldClass}
         />
-      </label>
+      </div>
       <label className="block text-sm font-medium text-ink">
         Password
         <input
@@ -60,7 +64,7 @@ export function LoginForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="inline-flex h-12 w-full items-center justify-center rounded-full bg-forest text-sm font-medium text-white transition hover:bg-forest-deep disabled:opacity-70"
+        className="inline-flex h-12 w-full cursor-pointer items-center justify-center rounded-full bg-forest text-sm font-medium text-white transition hover:bg-forest-deep disabled:opacity-70"
       >
         {status === "sending" ? "Signing in…" : "Sign in"}
       </button>

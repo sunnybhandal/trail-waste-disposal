@@ -8,17 +8,13 @@ export function Faq() {
 
   return (
     <section id="faq" className="scroll-mt-24 border-t border-line">
-      <div className="mx-auto max-w-3xl px-5 py-16 sm:px-8 sm:py-24">
+      <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
         <p className="text-xs font-medium uppercase tracking-[0.18em] text-sage">
           FAQ
         </p>
         <h2 className="mt-4 font-display text-4xl leading-tight text-ink sm:text-5xl">
           Frequently Asked Questions
         </h2>
-        <p className="mt-4 text-base leading-7 text-stone">
-          Quick answers about our Calgary front-load service. Still unsure? Call
-          and you’ll reach someone who knows your account.
-        </p>
 
         <div className="mt-10 divide-y divide-line border-y border-line">
           {faqs.map((item, index) => {
@@ -35,7 +31,7 @@ export function Faq() {
                     aria-expanded={isOpen}
                     aria-controls={panelId}
                     onClick={() => setOpenIndex(isOpen ? null : index)}
-                    className="flex w-full items-center justify-between gap-4 py-5 text-left text-base font-medium text-ink sm:text-lg"
+                    className="flex w-full cursor-pointer items-center justify-between gap-4 py-5 text-left text-base font-medium text-ink sm:text-lg"
                   >
                     <span>{item.question}</span>
                     <span
