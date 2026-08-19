@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useRef, useState } from "react";
+import { formatPhone } from "@/lib/phone";
 
 const fieldClass =
   "mt-2 w-full rounded-xl border border-line bg-white px-4 py-3 text-base text-ink outline-none transition focus:border-forest";
@@ -8,6 +9,7 @@ const fieldClass =
 export function CareersForm() {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [fileName, setFileName] = useState("");
+  const [phone, setPhone] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">(
     "idle",
   );
@@ -33,6 +35,7 @@ export function CareersForm() {
 
       form.reset();
       setFileName("");
+      setPhone("");
       setStatus("success");
       setMessage("Application received. We’ll be in touch if there’s a fit.");
     } catch {
@@ -59,7 +62,12 @@ export function CareersForm() {
           name="phone"
           type="tel"
           required
+          inputMode="numeric"
           autoComplete="tel"
+          pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+          title="Use the format ###-###-####"
+          value={phone}
+          onChange={(event) => setPhone(formatPhone(event.target.value))}
           className={fieldClass}
         />
       </label>

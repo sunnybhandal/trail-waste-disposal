@@ -2,6 +2,7 @@
 
 import { FormEvent, useEffect, useState } from "react";
 import { SelectField } from "@/components/SelectField";
+import { formatPhone } from "@/lib/phone";
 import {
   businessTypes,
   dumpsterSizes,
@@ -13,17 +14,6 @@ import {
 
 const fieldClass =
   "mt-2 w-full rounded-xl border border-line bg-white px-4 py-3 text-base text-ink outline-none transition focus:border-forest";
-
-function formatPhone(value: string) {
-  const digits = value.replace(/\D/g, "").slice(0, 10);
-  if (digits.length <= 3) {
-    return digits;
-  }
-  if (digits.length <= 6) {
-    return `${digits.slice(0, 3)}-${digits.slice(3)}`;
-  }
-  return `${digits.slice(0, 3)}-${digits.slice(3, 6)}-${digits.slice(6)}`;
-}
 
 export function ContactForm() {
   const [step, setStep] = useState<1 | 2>(1);
@@ -140,7 +130,6 @@ export function ContactForm() {
             inputMode="numeric"
             autoComplete="tel"
             suppressHydrationWarning
-            placeholder="###-###-####"
             pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
             title="Use the format ###-###-####"
             value={phone}
@@ -188,7 +177,7 @@ export function ContactForm() {
           type="submit"
           className="inline-flex h-12 w-full items-center justify-center rounded-full bg-forest text-sm font-medium text-white transition hover:bg-forest-deep sm:w-auto sm:px-8"
         >
-          Check Availability
+          Next: Service Details
         </button>
       </div>
 
@@ -253,21 +242,21 @@ export function ContactForm() {
             onChange={setPickupDay}
           />
         </div>
-        <div className="flex flex-col gap-3 sm:flex-row">
+        <div className="flex flex-row gap-3">
           <button
             type="button"
             onClick={() => {
               setOpenSelect(null);
               setStep(1);
             }}
-            className="inline-flex h-12 w-full items-center justify-center rounded-full border border-line text-sm font-medium text-ink transition hover:border-forest hover:text-forest sm:w-auto sm:px-8"
+            className="inline-flex h-12 flex-1 items-center justify-center rounded-full border border-line text-sm font-medium text-ink transition hover:border-forest hover:text-forest sm:flex-none sm:px-8"
           >
             Back
           </button>
           <button
             type="submit"
             disabled={status === "sending"}
-            className="inline-flex h-12 w-full items-center justify-center rounded-full bg-forest text-sm font-medium text-white transition hover:bg-forest-deep disabled:opacity-70 sm:w-auto sm:px-8"
+            className="inline-flex h-12 flex-1 items-center justify-center rounded-full bg-forest text-sm font-medium text-white transition hover:bg-forest-deep disabled:opacity-70 sm:flex-none sm:px-8"
           >
             {status === "sending" ? "Sending…" : "Submit"}
           </button>

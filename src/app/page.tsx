@@ -13,12 +13,8 @@ export default function Home() {
         className="mx-auto grid max-w-6xl scroll-mt-24 items-center gap-10 px-5 pb-16 pt-10 sm:px-8 sm:pb-24 sm:pt-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14 lg:pt-20"
       >
         <div>
-          <p className="text-xs font-medium uppercase tracking-[0.18em] text-sage">
-            Serving Calgary & Cochrane
-          </p>
-          <h1 className="mt-4 font-display text-[2.35rem] leading-[1.08] text-ink sm:text-5xl lg:text-[3.5rem]">
-            Fast & Reliable Local Waste Disposal
-            Services
+          <h1 className="font-display text-[2.35rem] leading-[1.08] text-ink sm:text-5xl lg:text-[3.5rem]">
+            Calgary & Cochrane Waste Disposal Services
           </h1>
           <p className="mt-5 max-w-lg font-display text-2xl leading-snug text-forest sm:text-3xl">
             Show us your bill and we’ll beat your current price.
@@ -29,7 +25,7 @@ export default function Home() {
           <div className="mt-8">
             <Link
               href="/#contact"
-              className="inline-flex h-12 cursor-pointer items-center justify-center rounded-full bg-forest px-6 text-sm font-medium text-white transition hover:bg-forest-deep"
+              className="flex h-12 w-full cursor-pointer items-center justify-center rounded-full bg-forest px-6 text-sm font-medium text-white transition hover:bg-forest-deep sm:inline-flex sm:w-auto"
             >
               Get a Quote
             </Link>

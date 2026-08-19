@@ -33,13 +33,6 @@ export function Header() {
   }, [open]);
 
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [open]);
-
-  useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 4);
     };
@@ -53,7 +46,7 @@ export function Header() {
     <header
       ref={headerRef}
       className={`sticky top-0 z-50 border-b border-line/80 bg-white/90 backdrop-blur-md transition-shadow ${
-        scrolled ? "shadow-[0_2px_10px_rgba(23,20,17,0.08)]" : "shadow-none"
+        scrolled && !open ? "shadow-[0_2px_10px_rgba(23,20,17,0.08)]" : "shadow-none"
       }`}
     >
       <div className="mx-auto flex h-[4.5rem] max-w-6xl items-center justify-between px-5 sm:h-20 sm:px-8">
@@ -113,7 +106,7 @@ export function Header() {
       {open ? (
         <div
           id="mobile-nav"
-          className="border-t border-line bg-white px-5 py-6 lg:hidden"
+          className="absolute top-full right-0 left-0 z-50 border-t border-line bg-white px-5 py-6 shadow-[0_16px_32px_rgba(23,20,17,0.12)] lg:hidden"
         >
           <nav className="flex flex-col gap-1" aria-label="Mobile">
             {navLinks.map((link) => (
