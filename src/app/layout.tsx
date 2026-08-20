@@ -31,15 +31,24 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: `${site.name} | Calgary Front-Load Dumpster Service`,
+    default: `${site.name} | Calgary & Cochrane Waste, Trash & Garbage Collection`,
     template: `%s | ${site.name}`,
   },
   description:
-    "Reliable, local front-load dumpster service in Calgary and Cochrane. No hidden fees, no missed pickups — just a real person who knows your account.",
+    "Commercial waste, trash, and garbage collection in Calgary, Cochrane, and surrounding areas. Front-load dumpsters, reliable pickup, and no hidden fees.",
+  keywords: [
+    "waste disposal Calgary",
+    "garbage collection Calgary",
+    "trash pickup Calgary",
+    "waste management Cochrane",
+    "commercial dumpster service",
+    "front-load dumpsters",
+  ],
   metadataBase: new URL("https://trailwastedisposal.ca"),
   openGraph: {
-    title: `${site.name} | Fast, reliable, local waste disposal`,
-    description: site.tagline,
+    title: `${site.name} | Calgary Waste, Trash & Garbage Collection`,
+    description:
+      "Local commercial waste, trash, and garbage pickup for businesses and multi-unit properties in Calgary and Cochrane.",
     images: ["/images/hero.jpg"],
   },
 };

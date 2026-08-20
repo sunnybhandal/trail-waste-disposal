@@ -11,7 +11,7 @@ export function ContactSection() {
             Contact
           </p>
           <h2 className="mt-4 font-display text-4xl leading-tight text-ink sm:text-5xl">
-            Receive a free quote on waste disposal services in Calgary.
+            Get a Free Quote for Calgary Trash & Waste Disposal
           </h2>
           <address className="mt-8 space-y-1 text-base not-italic leading-7 text-stone">
             {site.addressLines.map((line) => (

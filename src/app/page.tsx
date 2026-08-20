@@ -20,7 +20,8 @@ export default function Home() {
             Show us your bill and we’ll beat your current price.
           </p>
           <p className="mt-6 max-w-md text-base leading-7 text-stone sm:text-lg">
-            Front-load dumpsters for businesses and multi-unit properties.
+            Commercial trash, garbage, and recycling dumpsters for businesses
+            and multi-unit properties.
           </p>
           <div className="mt-8">
             <Link
@@ -36,7 +37,7 @@ export default function Home() {
           <div className="flex items-center justify-center rounded-3xl bg-cream px-4 py-8 sm:px-6 sm:py-10">
             <Image
               src="/images/truck.png"
-              alt="White front-load garbage truck used for commercial pickup"
+              alt="Front-load garbage truck for commercial waste collection in Calgary"
               width={555}
               height={346}
               priority
@@ -55,7 +56,7 @@ export default function Home() {
             How it works
           </p>
           <h2 className="mt-4 max-w-3xl font-display text-4xl leading-tight text-ink sm:text-5xl">
-            Passionate About Delivering Exceptional Service
+            How Calgary Waste, Trash & Garbage Collection Works
           </h2>
           <ol className="mt-8 max-w-3xl space-y-5">
             <li className="flex items-baseline gap-3">
@@ -63,7 +64,7 @@ export default function Home() {
                 1.
               </span>
               <p className="font-display text-2xl font-medium leading-snug text-forest">
-                Provide your details in our Contact Form
+                Tell us about your waste collection needs
               </p>
             </li>
             <li className="flex items-baseline gap-3">
@@ -71,7 +72,7 @@ export default function Home() {
                 2.
               </span>
               <p className="font-display text-2xl font-medium leading-snug text-forest">
-                Someone from our team will contact you and understand your needs
+                We’ll review your trash, dumpster, and pickup requirements
               </p>
             </li>
             <li className="flex items-baseline gap-3">
@@ -79,17 +80,18 @@ export default function Home() {
                 3.
               </span>
               <p className="font-display text-2xl font-medium leading-snug text-forest">
-                Once we confirm our availability, we’ll create a set pickup
-                schedule that fits your needs
+                Once we confirm availability, we’ll set a garbage pickup
+                schedule that fits your property
               </p>
             </li>
           </ol>
           <p className="mt-8 max-w-3xl text-base leading-8 text-stone sm:text-lg">
             Whether you manage a business, apartment complex, or multi-unit
-            property in Calgary and the surrounding areas, our team ensures
-            your waste is collected on time, every time. We guarantee no disruptions, no
-            missed pickups, and no hidden fees. We’re small enough to care,
-            and experienced enough to get the job done right.
+            property in Calgary, Cochrane, or the surrounding areas, our team
+            collects your waste, trash, and garbage on time, every time. We
+            guarantee no disruptions, no missed pickups, and no hidden fees.
+            We’re small enough to care, and experienced enough to get the job
+            done right.
           </p>
         </div>
 
@@ -103,18 +105,19 @@ export default function Home() {
             >
               <Image
                 src="/images/trail-bottle-logo.png"
-                alt="Trail Bottle Depot"
-                width={222}
+                alt="Trail Bottle Depot Calgary bottle recycling services"
+                width={191}
                 height={96}
                 className="h-[4.75rem] w-auto"
               />
             </a>
             <div className="min-w-0 flex-1">
               <p className="text-xs font-medium uppercase tracking-[0.18em] text-sage">
-                Bottle recycling
+                Calgary bottle recycling
               </p>
               <p className="mt-3 text-base leading-7 text-stone sm:text-lg">
-                If you’re interested in bottle recycling services, please visit{" "}
+                If you need bottle recycling or beverage container return
+                services in Calgary, please visit{" "}
                 <a
                   href={site.sisterCompany.href}
                   target="_blank"

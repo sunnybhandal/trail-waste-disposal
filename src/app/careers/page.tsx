@@ -3,9 +3,9 @@ import { CareersForm } from "@/components/CareersForm";
 import { careerPerks, careerRequirements, site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Careers",
+  title: "Careers in Calgary Waste Collection",
   description:
-    "Join the Trail Waste Disposal team in Calgary. Steady local work and room to grow.",
+    "Join Trail Waste Disposal for waste and garbage collection jobs in Calgary. Steady local work, competitive wages, and room to grow.",
 };
 
 export default function CareersPage() {
@@ -13,12 +13,13 @@ export default function CareersPage() {
     <section className="mx-auto grid max-w-6xl gap-12 px-5 py-12 sm:px-8 sm:py-20 lg:grid-cols-2">
       <div>
         <h1 className="font-display text-4xl leading-tight text-ink sm:text-5xl">
-          Careers
+          Careers in Calgary Waste Collection
         </h1>
         <p className="mt-6 text-base leading-8 text-stone sm:text-lg">
           Trail Waste Disposal is always looking for dependable, hardworking
-          individuals to join our growing team in Calgary. We value safety,
-          professionalism, and reliability.
+          people to join our growing waste and garbage collection team in
+          Calgary. We value safety, professionalism, and reliability on every
+          route.
         </p>
         <div className="mt-8 rounded-2xl border border-line bg-cream/70 px-5 py-5">
           <p className="text-xs font-medium uppercase tracking-[0.16em] text-sage">
@@ -50,7 +51,9 @@ export default function CareersPage() {
       </div>
 
       <div className="rounded-3xl border border-line bg-white p-5 sm:p-8">
-        <h2 className="font-display text-3xl text-ink">Apply</h2>
+        <h2 className="font-display text-3xl text-ink">
+          Apply for a Waste Collection Job
+        </h2>
         <p className="mt-2 mb-8 text-sm text-stone">
           Send your details and attach a resume. We review every application.
         </p>

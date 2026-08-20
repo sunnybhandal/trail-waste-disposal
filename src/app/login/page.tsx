@@ -4,15 +4,16 @@ import { LoginForm } from "@/components/LoginForm";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Customer Portal",
-  description: "Sign in to your Trail Waste Disposal customer portal.",
+  title: "Customer Portal | Waste Pickup & Billing",
+  description:
+    "Sign in to manage waste pickup schedules, garbage service invoices, and your Trail Waste Disposal account in Calgary.",
 };
 
 const features = [
   {
-    title: "Pickup Schedules",
+    title: "Waste Pickup Schedules",
     description:
-      "View and track your upcoming pickup dates and service details.",
+      "View and track upcoming garbage and waste pickup dates and service details.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6" aria-hidden="true">
         <rect
@@ -36,7 +37,7 @@ const features = [
   {
     title: "Invoices & Billing",
     description:
-      "Access your invoices and manage billing information.",
+      "Access waste collection invoices and manage billing information in one place.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6" aria-hidden="true">
         <path

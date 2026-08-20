@@ -91,28 +91,28 @@ export const careerRequirements = [
 
 export const faqs = [
   {
-    question: "What areas do you serve?",
+    question: "What areas do you serve for waste and garbage pickup?",
     answer:
-      "We provide front-load dumpster service in Calgary, Cochrane, and surrounding communities. If you’re just outside the city, call us and we’ll let you know if we can add you to a nearby route.",
+      "We provide commercial waste, trash, and garbage collection in Calgary, Cochrane, and surrounding communities. If you’re just outside the city, call us and we’ll let you know if we can add you to a nearby route.",
   },
   {
-    question: "Do you only offer front-load dumpsters?",
+    question: "Do you offer residential trash pickup?",
     answer:
-      "Yes. We specialize in front-load dumpsters so we can keep service consistent and reliable. We’ll help you choose a bin size that fits your property, from smaller retail bins to larger commercial containers.",
+      "We specialize in commercial front-load dumpsters for businesses, apartment complexes, and multi-unit properties. That focus keeps garbage collection consistent and reliable. We’ll help you choose a waste bin size that fits your property, from smaller retail bins to larger commercial containers.",
   },
   {
-    question: "How do I get a quote?",
+    question: "How do I get a quote for Calgary waste disposal?",
     answer:
-      "Send us your name, phone, email, address, and business type through the contact form — or call 403-253-2155. Show us your current bill and we’ll beat the price.",
+      "Send us your name, phone, email, address, and business type through the contact form — or call 403-253-2155. Show us your current garbage or waste bill and we’ll beat the price.",
   },
   {
-    question: "Are there hidden fees?",
+    question: "Are there hidden fees on trash collection?",
     answer:
-      "No. We started Trail Waste Disposal because extra fees and surprise charges are too common in this industry. Your quote is the price you pay, with clear terms and a real person on your account.",
+      "No. We started Trail Waste Disposal because extra fees and surprise charges are too common in the waste industry. Your quote is the price you pay for garbage and waste collection, with clear terms and a real person on your account.",
   },
   {
-    question: "What kinds of businesses do you work with?",
+    question: "What kinds of businesses do you collect waste from?",
     answer:
-      "We collect for retail stores, restaurants, office buildings, warehouses, commercial property managers, apartment complexes, and other small businesses across the Calgary area.",
+      "We collect trash, recycling, and organics for retail stores, restaurants, office buildings, warehouses, commercial property managers, apartment complexes, and other small businesses across the Calgary area.",
   },
 ] as const;

@@ -10,23 +10,23 @@ export function AboutSection() {
             About us
           </p>
           <h2 className="mt-4 font-display text-4xl leading-tight text-ink sm:text-5xl">
-            Built from 20 years of honest service.
+            A Local Calgary Waste & Garbage Company You Can Trust
           </h2>
           <div className="mt-8 space-y-6 text-base leading-8 text-stone sm:text-lg">
             <p>
               After owning and operating Trail Bottle Depot for the past 20
               years, we’ve built our business around hard work, honest service,
               and treating customers the way they deserve to be treated. We
-              started Trail Waste Disposal after the firsthand experience of the
-              poor service that has become all too common in the waste disposal
-              industry – missed appointments, price gouging, excessive extra
-              fees, and poor customer service. We strive to be everything
-              they’re not – reliable, transparent, fairly priced, and built
-              around real customer service.
+              started Trail Waste Disposal after seeing the poor service that
+              has become too common in waste, trash, and garbage collection —
+              missed appointments, price gouging, extra fees, and no one who
+              knows your account. We strive to be everything they’re not:
+              reliable, transparent, fairly priced, and built around real
+              customer service.
             </p>
             <p>
-              We serve customers in {site.languages.join(", ")} across{" "}
-              {site.serviceArea}.
+              We provide commercial waste disposal and garbage pickup in{" "}
+              {site.languages.join(", ")} across {site.serviceArea}.
             </p>
           </div>
         </div>
@@ -34,7 +34,7 @@ export function AboutSection() {
         <div className="overflow-hidden rounded-3xl bg-cream">
           <Image
             src="/images/about-pickup.jpg"
-            alt="A white front-load truck collecting dumpsters at a commercial property"
+            alt="Trail Waste Disposal truck collecting commercial garbage dumpsters in Calgary"
             width={1400}
             height={788}
             className="h-auto w-full object-contain"
