@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useRef, useState } from "react";
+import { EmailField, hasEmailFormat } from "@/components/EmailField";
 import { formatPhone } from "@/lib/phone";
 
 const fieldClass =
@@ -10,6 +11,7 @@ export function CareersForm() {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [fileName, setFileName] = useState("");
   const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">(
     "idle",
   );
@@ -17,6 +19,9 @@ export function CareersForm() {
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (email.length > 0 && !hasEmailFormat(email)) {
+      return;
+    }
     setStatus("sending");
     setMessage("");
 
@@ -36,6 +41,7 @@ export function CareersForm() {
       form.reset();
       setFileName("");
       setPhone("");
+      setEmail("");
       setStatus("success");
       setMessage("Application received. We’ll be in touch if there’s a fit.");
     } catch {
@@ -71,16 +77,12 @@ export function CareersForm() {
           className={fieldClass}
         />
       </label>
-      <label className="block text-sm font-medium text-ink">
-        Email
-        <input
-          name="email"
-          type="email"
-          required
-          autoComplete="email"
-          className={fieldClass}
-        />
-      </label>
+      <EmailField
+        id="careers-email"
+        required
+        value={email}
+        onChange={setEmail}
+      />
       <div>
         <p className="text-sm font-medium text-ink">Resume</p>
         <div className="mt-2 flex min-h-28 flex-col items-center justify-center rounded-xl border border-dashed border-line bg-cream/60 px-4 py-6 text-center">

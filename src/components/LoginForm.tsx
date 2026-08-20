@@ -1,16 +1,21 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { EmailField, hasEmailFormat } from "@/components/EmailField";
 
 const fieldClass =
   "mt-2 w-full rounded-xl border border-line bg-white px-4 py-3 text-base text-ink outline-none transition focus:border-forest";
 
 export function LoginForm() {
+  const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "error">("idle");
   const [message, setMessage] = useState("");
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (email.length > 0 && !hasEmailFormat(email)) {
+      return;
+    }
     setStatus("sending");
     setMessage("");
 
@@ -37,20 +42,12 @@ export function LoginForm() {
 
   return (
     <form onSubmit={onSubmit} className="space-y-5">
-      <div>
-        <label htmlFor="login-email" className="block text-sm font-medium text-ink">
-          Email
-        </label>
-        <input
-          id="login-email"
-          name="email"
-          type="email"
-          required
-          autoComplete="email"
-          placeholder=""
-          className={fieldClass}
-        />
-      </div>
+      <EmailField
+        id="login-email"
+        required
+        value={email}
+        onChange={setEmail}
+      />
       <label className="block text-sm font-medium text-ink">
         Password
         <input

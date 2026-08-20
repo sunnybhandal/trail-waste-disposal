@@ -1,7 +1,41 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { faqs } from "@/lib/site";
+
+function FaqAnswer({
+  item,
+  className,
+}: {
+  item: (typeof faqs)[number];
+  className: string;
+}) {
+  if ("link" in item && item.link) {
+    const [before, after] = item.answer.split("{link}");
+    const isInternal = item.link.href.startsWith("/");
+    const linkClass =
+      "font-medium text-forest underline decoration-line underline-offset-4 hover:decoration-forest";
+    const linked = isInternal ? (
+      <Link href={item.link.href} className={linkClass}>
+        {item.link.label}
+      </Link>
+    ) : (
+      <a href={item.link.href} className={linkClass}>
+        {item.link.label}
+      </a>
+    );
+    return (
+      <p className={className}>
+        {before}
+        {linked}
+        {after}
+      </p>
+    );
+  }
+
+  return <p className={className}>{item.answer}</p>;
+}
 
 export function Faq() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -10,7 +44,7 @@ export function Faq() {
     <section id="faq" className="scroll-mt-24 border-t border-line">
       <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
         <h2 className="font-display text-4xl leading-tight text-ink sm:text-5xl">
-          Calgary Waste, Trash & Garbage FAQs
+          Frequently Asked Questions
         </h2>
 
         <div className="mt-10 divide-y divide-line border-y border-line">
@@ -58,13 +92,12 @@ export function Faq() {
                   }`}
                 >
                   <div className="min-h-0 overflow-hidden">
-                    <p
+                    <FaqAnswer
+                      item={item}
                       className={`max-w-2xl pb-5 text-base leading-7 text-stone transition-opacity duration-300 ease-out ${
                         isOpen ? "opacity-100" : "opacity-0"
                       }`}
-                    >
-                      {item.answer}
-                    </p>
+                    />
                   </div>
                 </div>
               </div>

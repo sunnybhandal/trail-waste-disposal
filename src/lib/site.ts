@@ -17,8 +17,8 @@ export const site = {
 
 export const navLinks = [
   { href: "/#how-it-works", label: "How it Works" },
-  { href: "/#about", label: "About" },
   { href: "/#contact", label: "Contact" },
+  { href: "/#about", label: "About" },
   { href: "/#faq", label: "FAQ" },
   { href: "/careers", label: "Careers" },
 ] as const;
@@ -62,6 +62,40 @@ export const dumpsterSizes = [
   "8 Yard Waste Bin (6' 10\" W 6' 2\" H 6' 10\" D)",
 ] as const;
 
+export const dumpsterSizeGuide = [
+  {
+    name: "3 Yard Dumpster",
+    dimensions: ["5' 10\" W", "4' 5\" H", "3' 6\" D"],
+    holds: "600 LBS, 21 GARBAGE BAGS",
+    pickupFrequency: "Up to 5x a week",
+    recommendedUse: "Ideal for businesses with up to 50 employees",
+  },
+  {
+    name: "4 Yard Dumpster",
+    dimensions: ["5' 10\" W", "5' 1\" H", "4' 2\" D"],
+    holds: "800 LBS, 27 GARBAGE BAGS",
+    pickupFrequency: "Up to 5x a week",
+    recommendedUse:
+      "Best for midsize restaurants and companies with up to 100 employees",
+  },
+  {
+    name: "6 Yard Dumpster",
+    dimensions: ["6' 0\" W", "5' 10\" H", "5' 8\" D"],
+    holds: "1,200 LBS, 41 GARBAGE BAGS",
+    pickupFrequency: "Up to 5x a week",
+    recommendedUse:
+      "Ideal for mid to large businesses with up to 250 employees",
+  },
+  {
+    name: "8 Yard Dumpster",
+    dimensions: ["6' 10\" W", "6' 2\" H", "6' 10\" D"],
+    holds: "1,800 LBS, 54 GARBAGE BAGS",
+    pickupFrequency: "Up to 5x a week",
+    recommendedUse:
+      "Our largest recurring size—best for large businesses with up to 500 employees",
+  },
+] as const;
+
 export const quantities = ["1", "2", "3", "4", "5"] as const;
 
 export const pickupFrequencies = ["Weekly", "Bi-weekly", "Monthly"] as const;
@@ -93,22 +127,19 @@ export const faqs = [
   {
     question: "What areas do you serve for waste and garbage pickup?",
     answer:
-      "We provide commercial waste, trash, and garbage collection in Calgary, Cochrane, and surrounding communities. If you’re just outside the city, call us and we’ll let you know if we can add you to a nearby route.",
+      "We provide commercial waste, trash, and garbage collection in Calgary, Cochrane, and surrounding communities. If you’re just outside the city, call us at {link} and we’ll let you know if we can add you to a nearby route.",
+    link: { href: "tel:+14032532155", label: "403-253-2155" },
   },
   {
     question: "Do you offer residential trash pickup?",
     answer:
-      "We specialize in commercial front-load dumpsters for businesses, apartment complexes, and multi-unit properties. That focus keeps garbage collection consistent and reliable. We’ll help you choose a waste bin size that fits your property, from smaller retail bins to larger commercial containers.",
+      "We don’t offer residential curbside trash pickup. We specialize in commercial front-load dumpsters for businesses, apartment complexes, and multi-unit properties, and we’ll help you choose a bin size that fits.",
   },
   {
-    question: "How do I get a quote for Calgary waste disposal?",
+    question: "What does your pricing structure look like?",
     answer:
-      "Send us your name, phone, email, address, and business type through the contact form — or call 403-253-2155. Show us your current garbage or waste bill and we’ll beat the price.",
-  },
-  {
-    question: "Are there hidden fees on trash collection?",
-    answer:
-      "No. We started Trail Waste Disposal because extra fees and surprise charges are too common in the waste industry. Your quote is the price you pay for garbage and waste collection, with clear terms and a real person on your account.",
+      "Pricing varies depending on your needs, but fill out our {link} and we’ll be in touch.",
+    link: { href: "/#contact", label: "Contact Form" },
   },
   {
     question: "What kinds of businesses do you collect waste from?",

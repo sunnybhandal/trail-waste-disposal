@@ -5,6 +5,80 @@ import { ContactSection } from "@/components/ContactSection";
 import { Faq } from "@/components/Faq";
 import { site } from "@/lib/site";
 
+const howItWorksSteps = [
+  {
+    key: "needs",
+    title: (
+      <>
+        Tell us about your waste collection needs by filling out this{" "}
+        <Link
+          href="/#contact"
+          className="underline decoration-forest/40 underline-offset-4 transition hover:text-forest-deep hover:decoration-forest-deep"
+        >
+          form
+        </Link>
+      </>
+    ),
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6" aria-hidden="true">
+        <path
+          d="M8 3.5h5.5L18.5 8.5V20A1.5 1.5 0 0 1 17 21.5H8A1.5 1.5 0 0 1 6.5 20V5A1.5 1.5 0 0 1 8 3.5Z"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M13.5 3.5V8h5M9 12.5h6M9 16h4"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
+  },
+  {
+    key: "review",
+    title: "We’ll review your requirements",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6" aria-hidden="true">
+        <circle cx="10.5" cy="10.5" r="5.75" stroke="currentColor" strokeWidth="1.5" />
+        <path
+          d="M15 15.5 20 20.5"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+        />
+      </svg>
+    ),
+  },
+  {
+    key: "schedule",
+    title:
+      "Once we confirm availability, we’ll set a pickup schedule that fits your property",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6" aria-hidden="true">
+        <rect
+          x="3.5"
+          y="5"
+          width="17"
+          height="15"
+          rx="2"
+          stroke="currentColor"
+          strokeWidth="1.5"
+        />
+        <path
+          d="M3.5 9.5h17M8 3.5v3M16 3.5v3"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+        />
+      </svg>
+    ),
+  },
+];
+
+
 export default function Home() {
   return (
     <>
@@ -33,17 +107,15 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="relative">
-          <div className="flex items-center justify-center rounded-3xl bg-cream px-4 py-8 sm:px-6 sm:py-10">
-            <Image
-              src="/images/truck.png"
-              alt="Front-load garbage truck for commercial waste collection in Calgary"
-              width={555}
-              height={346}
-              priority
-              className="h-auto w-full object-contain"
-            />
-          </div>
+        <div className="overflow-hidden rounded-3xl bg-cream">
+          <Image
+            src="/images/about-pickup.jpg"
+            alt="Trail Waste Disposal truck collecting commercial garbage dumpsters in Calgary"
+            width={1400}
+            height={788}
+            priority
+            className="h-auto w-full object-contain"
+          />
         </div>
       </section>
 
@@ -52,38 +124,26 @@ export default function Home() {
         className="scroll-mt-24 border-t border-line bg-cream/70"
       >
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
-          <p className="text-xs font-medium uppercase tracking-[0.18em] text-sage">
-            How it works
-          </p>
-          <h2 className="mt-4 max-w-3xl font-display text-4xl leading-tight text-ink sm:text-5xl">
+          <h2 className="max-w-3xl font-display text-4xl leading-tight text-ink sm:text-5xl">
             How Calgary Waste, Trash & Garbage Collection Works
           </h2>
-          <ol className="mt-8 max-w-3xl space-y-5">
-            <li className="flex items-baseline gap-3">
-              <span className="font-display text-2xl leading-snug text-ink">
-                1.
-              </span>
-              <p className="font-display text-2xl font-medium leading-snug text-forest">
-                Tell us about your waste collection needs
-              </p>
-            </li>
-            <li className="flex items-baseline gap-3">
-              <span className="font-display text-2xl leading-snug text-ink">
-                2.
-              </span>
-              <p className="font-display text-2xl font-medium leading-snug text-forest">
-                We’ll review your trash, dumpster, and pickup requirements
-              </p>
-            </li>
-            <li className="flex items-baseline gap-3">
-              <span className="font-display text-2xl leading-snug text-ink">
-                3.
-              </span>
-              <p className="font-display text-2xl font-medium leading-snug text-forest">
-                Once we confirm availability, we’ll set a garbage pickup
-                schedule that fits your property
-              </p>
-            </li>
+          <ol className="mt-10 max-w-3xl">
+            {howItWorksSteps.map((step, index) => (
+              <li key={step.key} className="relative flex gap-4 pb-8 last:pb-0 sm:gap-5 sm:pb-10">
+                {index !== howItWorksSteps.length - 1 ? (
+                  <span
+                    aria-hidden="true"
+                    className="absolute top-12 bottom-0 left-6 w-px bg-forest/25"
+                  />
+                ) : null}
+                <div className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-forest text-white">
+                  {step.icon}
+                </div>
+                <p className="pt-2 font-display text-2xl font-medium leading-snug text-forest">
+                  {step.title}
+                </p>
+              </li>
+            ))}
           </ol>
           <p className="mt-8 max-w-3xl text-base leading-8 text-stone sm:text-lg">
             Whether you manage a business, apartment complex, or multi-unit
@@ -112,10 +172,7 @@ export default function Home() {
               />
             </a>
             <div className="min-w-0 flex-1">
-              <p className="text-xs font-medium uppercase tracking-[0.18em] text-sage">
-                Calgary bottle recycling
-              </p>
-              <p className="mt-3 text-base leading-7 text-stone sm:text-lg">
+              <p className="text-base leading-7 text-stone sm:text-lg">
                 If you need bottle recycling or beverage container return
                 services in Calgary, please visit{" "}
                 <a
@@ -133,8 +190,8 @@ export default function Home() {
         </div>
       </section>
 
-      <AboutSection />
       <ContactSection />
+      <AboutSection />
       <Faq />
     </>
   );

@@ -80,9 +80,12 @@ const features = [
 
 export default function LoginPage() {
   return (
-    <section className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-12 sm:px-8 sm:py-20 lg:grid-cols-2">
+    <section className="mx-auto grid max-w-6xl items-start gap-12 px-5 py-12 sm:px-8 sm:py-20 lg:grid-cols-2">
       <div>
-        <ul className="space-y-8">
+        <h1 className="font-display text-4xl leading-tight text-ink sm:text-5xl">
+          Customer Portal
+        </h1>
+        <ul className="mt-10 space-y-8">
           {features.map((feature) => (
             <li key={feature.title} className="flex gap-4">
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-cream text-forest">
@@ -100,10 +103,7 @@ export default function LoginPage() {
       </div>
 
       <div>
-        <h1 className="text-xs font-medium uppercase tracking-[0.18em] text-sage">
-          Customer Portal
-        </h1>
-        <div className="mt-4 rounded-3xl border border-line bg-cream/50 p-5 sm:p-8">
+        <div className="rounded-3xl border border-line bg-cream/50 p-5 sm:p-8">
           <LoginForm />
         </div>
         <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-stone">

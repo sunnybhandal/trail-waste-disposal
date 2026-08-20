@@ -18,8 +18,7 @@ export default function CareersPage() {
         <p className="mt-6 text-base leading-8 text-stone sm:text-lg">
           Trail Waste Disposal is always looking for dependable, hardworking
           people to join our growing waste and garbage collection team in
-          Calgary. We value safety, professionalism, and reliability on every
-          route.
+          Calgary.
         </p>
         <div className="mt-8 rounded-2xl border border-line bg-cream/70 px-5 py-5">
           <p className="text-xs font-medium uppercase tracking-[0.16em] text-sage">
@@ -50,13 +49,8 @@ export default function CareersPage() {
         </p>
       </div>
 
-      <div className="rounded-3xl border border-line bg-white p-5 sm:p-8">
-        <h2 className="font-display text-3xl text-ink">
-          Apply for a Waste Collection Job
-        </h2>
-        <p className="mt-2 mb-8 text-sm text-stone">
-          Send your details and attach a resume. We review every application.
-        </p>
+      <div className="self-start rounded-3xl border border-line bg-white p-5 sm:p-8">
+        <h2 className="mb-8 font-display text-3xl text-ink">Apply Now</h2>
         <CareersForm />
       </div>
     </section>
