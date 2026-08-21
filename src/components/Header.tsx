@@ -77,7 +77,7 @@ export function Header() {
             href="/login"
             className="hidden h-10 cursor-pointer items-center rounded-full border border-line px-4 text-sm font-medium text-ink transition-colors hover:border-forest hover:text-forest lg:inline-flex"
           >
-            Login
+            Account Login
           </Link>
           <button
             type="button"
@@ -125,7 +125,7 @@ export function Header() {
                 onClick={() => setOpen(false)}
                 className="inline-flex h-12 cursor-pointer items-center justify-center rounded-full border border-line text-base font-medium text-ink"
               >
-                Login
+                Account Login
               </Link>
               <a
                 href={site.phoneHref}

@@ -109,10 +109,10 @@ export default function Home() {
 
         <div className="overflow-hidden rounded-3xl bg-cream">
           <Image
-            src="/images/about-pickup.jpg"
-            alt="Trail Waste Disposal truck collecting commercial garbage dumpsters in Calgary"
-            width={1400}
-            height={788}
+            src="/images/truckSide.png"
+            alt="Trail Waste Disposal front-load garbage truck in Calgary"
+            width={1600}
+            height={1108}
             priority
             className="h-auto w-full object-contain"
           />
