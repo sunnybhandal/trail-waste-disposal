@@ -31,10 +31,10 @@ export function AboutSection() {
 
         <div className="overflow-hidden rounded-3xl bg-cream">
           <Image
-            src="/images/about-pickup.jpg"
-            alt="Trail Waste Disposal truck collecting commercial garbage dumpsters in Calgary"
+            src="/images/truckSideClose.jpg"
+            alt="Trail Waste Disposal truck branding and contact details"
             width={1400}
-            height={788}
+            height={933}
             className="h-auto w-full object-contain"
           />
         </div>

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { ContactForm } from "@/components/ContactForm";
-import { ContactFormSingle } from "@/components/ContactFormSingle";
 import { site } from "@/lib/site";
 
 export function ContactSection() {
@@ -43,15 +42,6 @@ export function ContactSection() {
 
         <div className="rounded-3xl border border-line bg-white p-5 sm:p-8">
           <ContactForm />
-        </div>
-      </div>
-
-      <div className="mx-auto max-w-6xl px-5 pb-16 sm:px-8 sm:pb-24">
-        <p className="mb-4 text-sm font-medium text-stone">
-          Test version — single-page form
-        </p>
-        <div className="rounded-3xl border border-line bg-white p-5 sm:p-8">
-          <ContactFormSingle />
         </div>
       </div>
     </section>

@@ -8,6 +8,7 @@ export const site = {
   address: "8499 Horton Rd. SW, Calgary, AB, T2V 5J3",
   addressLines: ["8499 Horton Rd. SW", "Calgary, AB T2V 5J3"],
   languages: ["English", "Punjabi", "Hindi"],
+  customerPortalHref: "https://customer.trailbottle.app/waste/sign-in",
   sisterCompany: {
     name: "Trail Bottle Depot",
     href: "https://www.trailbottledepot.ca",

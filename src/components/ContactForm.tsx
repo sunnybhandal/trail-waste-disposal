@@ -1,9 +1,9 @@
 "use client";
 
 import { FormEvent, useEffect, useState } from "react";
-import { SelectField } from "@/components/SelectField";
 import { EmailField, hasEmailFormat } from "@/components/EmailField";
 import { DumpsterSizeGuide } from "@/components/DumpsterSizeGuide";
+import { SelectField } from "@/components/SelectField";
 import { formatPhone } from "@/lib/phone";
 import {
   businessTypes,
@@ -15,10 +15,9 @@ import {
 } from "@/lib/site";
 
 const fieldClass =
-  "mt-2 w-full rounded-xl border border-line bg-white px-4 py-3 text-base text-ink outline-none transition focus:border-forest";
+  "mt-2 w-full rounded-xl border border-line bg-white px-3 py-2.5 text-sm text-ink outline-none transition focus:border-forest sm:text-base";
 
 export function ContactForm() {
-  const [step, setStep] = useState<1 | 2>(1);
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [businessType, setBusinessType] = useState<string>("Retail");
@@ -44,33 +43,9 @@ export function ContactForm() {
     setOpenSelect(open ? name : null);
   }
 
-  function goToStepTwo(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    if (email.length > 0 && !hasEmailFormat(email)) {
-      return;
-    }
-
-    const form = event.currentTarget;
-    const stepOneFields = form.querySelectorAll<HTMLInputElement | HTMLSelectElement>(
-      "[data-step='1']",
-    );
-
-    for (const field of stepOneFields) {
-      if (!field.checkValidity()) {
-        field.reportValidity();
-        return;
-      }
-    }
-
-    setMessage("");
-    setOpenSelect(null);
-    setStep(2);
-  }
-
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (step !== 2) {
-      goToStepTwo(event);
+    if (email.length > 0 && !hasEmailFormat(email)) {
       return;
     }
 
@@ -101,7 +76,6 @@ export function ContactForm() {
       setPickupFrequency(pickupFrequencies[0]);
       setPickupDay(pickupDays[0]);
       setOpenSelect(null);
-      setStep(1);
       setStatus("success");
       setMessage("Thanks — we’ll be in touch shortly.");
     } catch {
@@ -111,28 +85,26 @@ export function ContactForm() {
   }
 
   if (!mounted) {
-    return <div className="min-h-[32rem]" aria-hidden="true" />;
+    return <div className="min-h-[24rem]" aria-hidden="true" />;
   }
 
   return (
-    <form onSubmit={onSubmit} className="space-y-5">
-      <div className={step === 1 ? "space-y-5" : "hidden"}>
-        <label className="block text-sm font-medium text-ink">
+    <form onSubmit={onSubmit} className="grid gap-4">
+      <div className="grid grid-cols-2 gap-4">
+        <label className="block min-w-0 text-sm font-medium text-ink">
           Name
           <input
             name="name"
-            data-step="1"
             type="text"
             required
             autoComplete="name"
             className={fieldClass}
           />
         </label>
-        <label className="block text-sm font-medium text-ink">
+        <label className="block min-w-0 text-sm font-medium text-ink">
           Phone
           <input
             name="phone"
-            data-step="1"
             type="tel"
             required
             inputMode="numeric"
@@ -145,29 +117,30 @@ export function ContactForm() {
             className={fieldClass}
           />
         </label>
+      </div>
+      <div className="grid gap-4 lg:grid-cols-2">
         <EmailField
           id="contact-email"
-          dataStep="1"
           required
           value={email}
           onChange={setEmail}
         />
-        <label className="block text-sm font-medium text-ink">
+        <label className="block min-w-0 text-sm font-medium text-ink">
           Address
           <input
             name="address"
-            data-step="1"
             type="text"
             required
             autoComplete="street-address"
             className={fieldClass}
           />
         </label>
-        <div className="block text-sm font-medium text-ink">
+      </div>
+      <div className="grid gap-4 lg:grid-cols-2">
+        <div className="block min-w-0 text-sm font-medium text-ink">
           Business Type
           <SelectField
             name="businessType"
-            dataStep="1"
             required
             value={businessType}
             options={businessTypes}
@@ -177,20 +150,11 @@ export function ContactForm() {
             onChange={setBusinessType}
           />
         </div>
-        <button
-          type="submit"
-          className="inline-flex h-12 w-full items-center justify-center rounded-full bg-forest text-sm font-medium text-white transition hover:bg-forest-deep sm:w-auto sm:px-8"
-        >
-          Next: Service Details
-        </button>
-      </div>
-
-      <div className={step === 2 ? "space-y-5" : "hidden"}>
-        <div className="block text-sm font-medium text-ink">
+        <div className="block min-w-0 text-sm font-medium text-ink">
           Service Type
           <SelectField
             name="serviceType"
-            required={step === 2}
+            required
             value={serviceType}
             options={serviceTypes}
             open={openSelect === "serviceType"}
@@ -198,26 +162,28 @@ export function ContactForm() {
             onChange={setServiceType}
           />
         </div>
-        <div className="block text-sm font-medium text-ink">
-          <span className="inline-flex items-center gap-2">
-            Configure Services - Dumpster Size
-            <DumpsterSizeGuide />
-          </span>
-          <SelectField
-            name="dumpsterSize"
-            required={step === 2}
-            value={dumpsterSize}
-            options={dumpsterSizes}
-            open={openSelect === "dumpsterSize"}
-            onOpenChange={(open) => toggleSelect("dumpsterSize", open)}
-            onChange={setDumpsterSize}
-          />
-        </div>
-        <div className="block text-sm font-medium text-ink">
+      </div>
+      <div className="block text-sm font-medium text-ink">
+        <span className="inline-flex items-center gap-2">
+          Dumpster Size
+          <DumpsterSizeGuide />
+        </span>
+        <SelectField
+          name="dumpsterSize"
+          required
+          value={dumpsterSize}
+          options={dumpsterSizes}
+          open={openSelect === "dumpsterSize"}
+          onOpenChange={(open) => toggleSelect("dumpsterSize", open)}
+          onChange={setDumpsterSize}
+        />
+      </div>
+      <div className="grid grid-cols-[6.5rem_minmax(0,1fr)] gap-4 lg:grid-cols-[7rem_minmax(0,1fr)_minmax(0,1fr)]">
+        <div className="block min-w-0 text-sm font-medium text-ink">
           Quantity
           <SelectField
             name="quantity"
-            required={step === 2}
+            required
             value={quantity}
             options={quantities}
             open={openSelect === "quantity"}
@@ -225,11 +191,11 @@ export function ContactForm() {
             onChange={setQuantity}
           />
         </div>
-        <div className="block text-sm font-medium text-ink">
+        <div className="block min-w-0 text-sm font-medium text-ink">
           Pickup Frequency
           <SelectField
             name="pickupFrequency"
-            required={step === 2}
+            required
             value={pickupFrequency}
             options={pickupFrequencies}
             open={openSelect === "pickupFrequency"}
@@ -237,11 +203,11 @@ export function ContactForm() {
             onChange={setPickupFrequency}
           />
         </div>
-        <div className="block text-sm font-medium text-ink">
+        <div className="col-span-2 block min-w-0 text-sm font-medium text-ink lg:col-span-1">
           Pickup Day
           <SelectField
             name="pickupDay"
-            required={step === 2}
+            required
             value={pickupDay}
             options={pickupDays}
             open={openSelect === "pickupDay"}
@@ -249,46 +215,23 @@ export function ContactForm() {
             onChange={setPickupDay}
           />
         </div>
-        <div className="flex flex-row gap-3">
-          <button
-            type="button"
-            onClick={() => {
-              setOpenSelect(null);
-              setStep(1);
-            }}
-            className="inline-flex h-12 flex-1 items-center justify-center rounded-full border border-line text-sm font-medium text-ink transition hover:border-forest hover:text-forest sm:flex-none sm:px-8"
-          >
-            Back
-          </button>
-          <button
-            type="submit"
-            disabled={status === "sending"}
-            className="inline-flex h-12 flex-1 items-center justify-center rounded-full bg-forest text-sm font-medium text-white transition hover:bg-forest-deep disabled:opacity-70 sm:flex-none sm:px-8"
-          >
-            {status === "sending" ? "Sending…" : "Submit"}
-          </button>
-        </div>
       </div>
-
-      {message ? (
-        <p
-          role="status"
-          className={status === "error" ? "text-sm text-red-700" : "text-sm text-sage"}
+      <div>
+        <button
+          type="submit"
+          disabled={status === "sending"}
+          className="inline-flex h-12 w-full items-center justify-center rounded-full bg-forest text-base font-medium text-white transition hover:bg-forest-deep disabled:opacity-70"
         >
-          {message}
-        </p>
-      ) : null}
-
-      <div className="pt-2">
-        <div className="mb-2 text-xs font-medium text-stone">
-          Step {step} of 2
-        </div>
-        <div className="h-1.5 overflow-hidden rounded-full bg-line">
-          <div
-            className="h-full rounded-full bg-forest transition-all duration-300"
-            style={{ width: step === 1 ? "50%" : "100%" }}
-          />
-        </div>
+          {status === "sending" ? "Sending…" : "Get a Free Quote"}
+        </button>
+        {message ? (
+          <p
+            role="status"
+            className={`mt-3 text-sm ${status === "error" ? "text-red-700" : "text-sage"}`}
+          >
+            {message}
+          </p>
+        ) : null}
       </div>
     </form>
   );

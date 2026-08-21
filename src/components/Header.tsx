@@ -73,12 +73,12 @@ export function Header() {
           >
             {site.phone}
           </a>
-          <Link
-            href="/login"
+          <a
+            href={site.customerPortalHref}
             className="hidden h-10 cursor-pointer items-center rounded-full border border-line px-4 text-sm font-medium text-ink transition-colors hover:border-forest hover:text-forest lg:inline-flex"
           >
             Account Login
-          </Link>
+          </a>
           <button
             type="button"
             className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line text-ink lg:hidden"
@@ -103,40 +103,51 @@ export function Header() {
         </div>
       </div>
 
-      {open ? (
-        <div
-          id="mobile-nav"
-          className="absolute top-full right-0 left-0 z-50 border-t border-line bg-white px-5 py-6 shadow-[0_16px_32px_rgba(23,20,17,0.12)] lg:hidden"
-        >
-          <nav className="flex flex-col gap-1" aria-label="Mobile">
+      <div
+        id="mobile-nav"
+        className={`absolute top-full right-0 left-0 z-50 grid overflow-hidden bg-cream shadow-[0_16px_32px_rgba(23,20,17,0.12)] transition-[grid-template-rows] duration-[350ms] ease-out lg:hidden ${
+          open ? "grid-rows-[1fr] border-t border-line" : "pointer-events-none grid-rows-[0fr] border-t border-transparent"
+        }`}
+      >
+        <div className="min-h-0 overflow-hidden">
+          <nav
+            className={`flex flex-col gap-1 px-5 py-6 transition-opacity duration-[350ms] ease-out ${
+              open ? "opacity-100" : "opacity-0"
+            }`}
+            aria-label="Mobile"
+            aria-hidden={!open}
+          >
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="rounded-xl px-3 py-3 text-lg text-ink hover:bg-cream"
+                className="block w-full rounded-xl px-3 py-3 text-right text-lg font-medium text-ink hover:bg-line"
+                tabIndex={open ? undefined : -1}
               >
                 {link.label}
               </Link>
             ))}
             <div className="mt-4 flex flex-col gap-3">
-              <Link
-                href="/login"
+              <a
+                href={site.customerPortalHref}
                 onClick={() => setOpen(false)}
-                className="inline-flex h-12 cursor-pointer items-center justify-center rounded-full border border-line text-base font-medium text-ink"
+                className="inline-flex h-12 cursor-pointer items-center justify-center rounded-full border border-line bg-white text-base font-medium text-ink"
+                tabIndex={open ? undefined : -1}
               >
                 Account Login
-              </Link>
+              </a>
               <a
                 href={site.phoneHref}
                 className="inline-flex h-12 cursor-pointer items-center justify-center rounded-full bg-forest text-base font-medium text-white"
+                tabIndex={open ? undefined : -1}
               >
                 {site.phone}
               </a>
             </div>
           </nav>
         </div>
-      ) : null}
+      </div>
     </header>
   );
 }

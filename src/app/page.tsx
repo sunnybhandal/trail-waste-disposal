@@ -100,9 +100,9 @@ export default function Home() {
           <div className="mt-8">
             <Link
               href="/#contact"
-              className="flex h-12 w-full cursor-pointer items-center justify-center rounded-full bg-forest px-6 text-sm font-medium text-white transition hover:bg-forest-deep sm:inline-flex sm:w-auto"
+              className="flex h-12 w-full cursor-pointer items-center justify-center rounded-full bg-forest px-6 text-base font-medium text-white transition hover:bg-forest-deep sm:inline-flex sm:w-auto"
             >
-              Get a Quote
+              Get a Free Quote
             </Link>
           </div>
         </div>
@@ -123,36 +123,48 @@ export default function Home() {
         id="how-it-works"
         className="scroll-mt-24 border-t border-line bg-cream/70"
       >
-        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
-          <h2 className="max-w-3xl font-display text-4xl leading-tight text-ink sm:text-5xl">
-            How Calgary Waste, Trash & Garbage Collection Works
-          </h2>
-          <ol className="mt-10 max-w-3xl">
-            {howItWorksSteps.map((step, index) => (
-              <li key={step.key} className="relative flex gap-4 pb-8 last:pb-0 sm:gap-5 sm:pb-10">
-                {index !== howItWorksSteps.length - 1 ? (
-                  <span
-                    aria-hidden="true"
-                    className="absolute top-12 bottom-0 left-6 w-px bg-forest/25"
-                  />
-                ) : null}
-                <div className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-forest text-white">
-                  {step.icon}
-                </div>
-                <p className="pt-2 font-display text-2xl font-medium leading-snug text-forest">
-                  {step.title}
-                </p>
-              </li>
-            ))}
-          </ol>
-          <p className="mt-8 max-w-3xl text-base leading-8 text-stone sm:text-lg">
-            Whether you manage a business, apartment complex, or multi-unit
-            property in Calgary, Cochrane, or the surrounding areas, our team
-            collects your waste, trash, and garbage on time, every time. We
-            guarantee no disruptions, no missed pickups, and no hidden fees.
-            We’re small enough to care, and experienced enough to get the job
-            done right.
-          </p>
+        <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-16 sm:px-8 sm:py-24 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
+          <div>
+            <h2 className="font-display text-4xl leading-tight text-ink sm:text-5xl">
+              How Calgary Waste, Trash & Garbage Collection Works
+            </h2>
+            <ol className="mt-10">
+              {howItWorksSteps.map((step, index) => (
+                <li key={step.key} className="relative flex gap-4 pb-8 last:pb-0 sm:gap-5 sm:pb-10">
+                  {index !== howItWorksSteps.length - 1 ? (
+                    <span
+                      aria-hidden="true"
+                      className="absolute top-12 bottom-0 left-6 -translate-x-1/2 border-l-2 border-dotted border-forest/40"
+                    />
+                  ) : null}
+                  <div className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-forest text-white">
+                    {step.icon}
+                  </div>
+                  <p className="pt-2 font-display text-2xl font-medium leading-snug text-forest">
+                    {step.title}
+                  </p>
+                </li>
+              ))}
+            </ol>
+            <p className="mt-8 text-base leading-8 text-stone sm:text-lg">
+              Whether you manage a business, apartment complex, or multi-unit
+              property in Calgary, Cochrane, or the surrounding areas, our team
+              collects your waste, trash, and garbage on time, every time. We
+              guarantee no disruptions, no missed pickups, and no hidden fees.
+              We’re small enough to care, and experienced enough to get the job
+              done right.
+            </p>
+          </div>
+
+          <div className="overflow-hidden rounded-3xl bg-cream">
+            <Image
+              src="/images/soloDumpster.jpg"
+              alt="Trail Waste Disposal commercial front-load garbage dumpster"
+              width={1400}
+              height={1098}
+              className="h-auto w-full object-contain"
+            />
+          </div>
         </div>
 
         <div className="mx-auto max-w-6xl px-5 pb-16 sm:px-8 sm:pb-24">
@@ -173,8 +185,8 @@ export default function Home() {
             </a>
             <div className="min-w-0 flex-1">
               <p className="text-base leading-7 text-stone sm:text-lg">
-                If you need bottle recycling or beverage container return
-                services in Calgary, please visit{" "}
+                Interested in bottle recycling services? Visit our sister
+                company,{" "}
                 <a
                   href={site.sisterCompany.href}
                   target="_blank"
@@ -182,8 +194,8 @@ export default function Home() {
                   className="font-medium text-forest underline decoration-line underline-offset-4 hover:decoration-forest"
                 >
                   {site.sisterCompany.name}
-                </a>{" "}
-                for more information.
+                </a>
+                , for fast, friendly, and reliable bottle recycling services.
               </p>
             </div>
           </div>

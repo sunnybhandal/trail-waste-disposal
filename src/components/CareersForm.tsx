@@ -116,9 +116,9 @@ export function CareersForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="inline-flex h-12 w-full cursor-pointer items-center justify-center rounded-full bg-forest text-sm font-medium text-white transition hover:bg-forest-deep disabled:opacity-70 sm:w-auto sm:px-8"
+        className="inline-flex h-12 w-full cursor-pointer items-center justify-center rounded-full bg-forest text-base font-medium text-white transition hover:bg-forest-deep disabled:opacity-70 sm:w-auto sm:px-8"
       >
-        {status === "sending" ? "Sending…" : "Submit application"}
+        {status === "sending" ? "Sending…" : "Submit Application"}
       </button>
       {message ? (
         <p
