@@ -1,14 +1,36 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Logo } from "@/components/Logo";
 import { navLinks, site } from "@/lib/site";
 
+const sectionIds = navLinks
+  .filter((link) => link.href.startsWith("/#"))
+  .map((link) => link.href.slice(2));
+
+function linkKey(href: string) {
+  return href.startsWith("/#") ? href.slice(2) : href.replace(/^\//, "");
+}
+
 export function Header() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState("");
   const headerRef = useRef<HTMLElement>(null);
+  const lockedRef = useRef<string | null>(null);
+  const unlockTimer = useRef<number>(0);
+
+  function activateLink(key: string) {
+    setActive(key);
+    lockedRef.current = key;
+    window.clearTimeout(unlockTimer.current);
+    unlockTimer.current = window.setTimeout(() => {
+      lockedRef.current = null;
+    }, 900);
+  }
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -42,6 +64,64 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    if (pathname === "/careers") {
+      setActive("careers");
+      return;
+    }
+
+    if (pathname !== "/") {
+      setActive("");
+      return;
+    }
+
+    function updateActive() {
+      if (lockedRef.current) {
+        return;
+      }
+
+      const headerHeight = headerRef.current?.offsetHeight ?? 80;
+      const probe = headerHeight + 24;
+      const lastId = sectionIds[sectionIds.length - 1];
+      const maxScroll = Math.max(
+        document.documentElement.scrollHeight - window.innerHeight,
+        0,
+      );
+
+      if (window.scrollY >= maxScroll - 64) {
+        setActive(lastId);
+        return;
+      }
+
+      const lastEl = document.getElementById(lastId);
+      if (lastEl && lastEl.getBoundingClientRect().top <= window.innerHeight * 0.4) {
+        setActive(lastId);
+        return;
+      }
+
+      let current = "";
+      for (const id of sectionIds) {
+        const el = document.getElementById(id);
+        if (!el) {
+          continue;
+        }
+        if (el.getBoundingClientRect().top <= probe) {
+          current = id;
+        }
+      }
+
+      setActive(current);
+    }
+
+    updateActive();
+    window.addEventListener("scroll", updateActive, { passive: true });
+    window.addEventListener("hashchange", updateActive);
+    return () => {
+      window.removeEventListener("scroll", updateActive);
+      window.removeEventListener("hashchange", updateActive);
+    };
+  }, [pathname]);
+
   return (
     <header
       ref={headerRef}
@@ -55,15 +135,22 @@ export function Header() {
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium text-stone transition-colors hover:text-forest"
-            >
-              {link.label}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = active === linkKey(link.href);
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                aria-current={isActive ? "page" : undefined}
+                onClick={() => activateLink(linkKey(link.href))}
+                className={`text-sm font-medium transition-colors ${
+                  isActive ? "text-forest" : "text-stone hover:text-forest"
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="flex items-center gap-2">
@@ -117,17 +204,26 @@ export function Header() {
             aria-label="Mobile"
             aria-hidden={!open}
           >
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className="block w-full rounded-xl px-3 py-3 text-right text-lg font-medium text-ink hover:bg-line"
-                tabIndex={open ? undefined : -1}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = active === linkKey(link.href);
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  aria-current={isActive ? "page" : undefined}
+                  onClick={() => {
+                    activateLink(linkKey(link.href));
+                    setOpen(false);
+                  }}
+                  className={`block w-full rounded-xl px-3 py-3 text-right text-lg font-medium transition-colors ${
+                    isActive ? "bg-white text-forest" : "text-ink hover:bg-line"
+                  }`}
+                  tabIndex={open ? undefined : -1}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
             <div className="mt-4 flex flex-col gap-3">
               <a
                 href={site.customerPortalHref}
