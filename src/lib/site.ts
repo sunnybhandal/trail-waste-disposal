@@ -147,4 +147,67 @@ export const faqs = [
     answer:
       "We collect trash, recycling, and organics for retail stores, restaurants, office buildings, warehouses, commercial property managers, apartment complexes, and other small businesses across the Calgary area.",
   },
+  {
+    question:
+      "How can I cancel my waste collection service? Are there cancellation fees?",
+    answer:
+      "If you need to cancel your service, simply contact our team and we’ll help you through the process. We aim to keep cancellations straightforward and transparent, with no unexpected fees. Any applicable cancellation terms will be reviewed with you before your service begins.",
+  },
+  {
+    question: "What payment methods do you accept?",
+    answer:
+      "We offer convenient payment options for our commercial customers. Contact our team to learn more about available payment methods and billing options.",
+  },
+  {
+    question: "What if I need to change my scheduled pickup day?",
+    answer:
+      "We understand that business needs can change. If you need to adjust your pickup schedule, contact us as soon as possible and we’ll do our best to accommodate your request based on route availability.",
+  },
+  {
+    question: "What size dumpster do I need?",
+    answer:
+      "The right dumpster size depends on the type and volume of waste your business produces, as well as how frequently you need pickups. We’ll work with you to determine the appropriate bin size and pickup schedule for your needs.",
+  },
+  {
+    question: "How often can my dumpster be picked up?",
+    answer:
+      "Pickup frequency is based on your business’s waste volume and requirements. We can help establish a schedule that keeps your dumpster from overflowing while avoiding unnecessary pickups.",
+  },
+  {
+    question: "What types of waste do you collect?",
+    answer:
+      "We provide commercial waste, trash, garbage, recycling, and organics collection for businesses and multi-unit properties. If you’re unsure whether we can handle a particular type of waste, contact us and we’ll be happy to help.",
+  },
+  {
+    question: "Do you provide waste collection for restaurants?",
+    answer:
+      "Yes. We provide commercial waste collection for restaurants and other businesses that generate regular amounts of commercial waste. We can help determine the appropriate dumpster size and pickup frequency for your operation.",
+  },
+  {
+    question: "Do you offer recycling and organics collection?",
+    answer:
+      "Yes. We offer commercial recycling and organics collection in addition to regular garbage and waste services. Let us know what your business needs and we can help create the right collection plan.",
+  },
+  {
+    question:
+      "What happens if my dumpster is full before my scheduled pickup?",
+    answer:
+      "If you find that your dumpster is filling up faster than expected, contact us and we’ll work with you to determine the best solution. This may include adjusting your pickup frequency or reviewing your dumpster size.",
+  },
+  {
+    question: "Do you service apartment buildings and multi-unit properties?",
+    answer:
+      "Yes. We provide commercial waste collection for apartment complexes and multi-unit properties, in addition to businesses and other commercial properties.",
+  },
+  {
+    question: "What areas do you service?",
+    answer:
+      "We provide commercial waste collection throughout Calgary, Cochrane, and surrounding communities. If you’re located just outside our regular service area, contact us and we’ll let you know if we can accommodate your property.",
+  },
+  {
+    question: "How do I get started?",
+    answer:
+      "Getting started is easy. Tell us about your business, property, and waste collection needs through our {link}. We’ll review your requirements, confirm availability, and work with you to establish a pickup schedule that fits your property.",
+    link: { href: "/#contact", label: "quote form" },
+  },
 ] as const;
