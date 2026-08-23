@@ -39,7 +39,7 @@ const howItWorksSteps = [
   },
   {
     key: "review",
-    title: "We’ll review your requirements",
+    title: "We’ll review your requirements and someone from our team will contact you",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6" aria-hidden="true">
         <circle cx="10.5" cy="10.5" r="5.75" stroke="currentColor" strokeWidth="1.5" />
