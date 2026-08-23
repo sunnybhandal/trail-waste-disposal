@@ -62,7 +62,9 @@ export function Faq() {
                     aria-expanded={isOpen}
                     aria-controls={panelId}
                     onClick={() => setOpenIndex(isOpen ? null : index)}
-                    className="flex w-full cursor-pointer items-center justify-between gap-4 py-5 text-left text-base font-medium text-ink sm:text-lg"
+                    className={`flex w-full cursor-pointer items-center justify-between gap-4 py-5 text-left text-base font-medium transition-colors duration-300 sm:text-lg ${
+                      isOpen ? "text-forest" : "text-ink"
+                    }`}
                   >
                     <span>{item.question}</span>
                     <span

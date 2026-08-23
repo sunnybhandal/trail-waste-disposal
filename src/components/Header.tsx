@@ -143,7 +143,7 @@ export function Header() {
                 href={link.href}
                 aria-current={isActive ? "page" : undefined}
                 onClick={() => activateLink(linkKey(link.href))}
-                className={`text-sm font-medium transition-colors ${
+                className={`relative pb-0.5 text-sm font-medium transition-colors after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-left after:scale-x-0 after:bg-forest after:transition-transform after:duration-300 after:ease-out hover:after:scale-x-100 ${
                   isActive ? "text-forest" : "text-stone hover:text-forest"
                 }`}
               >
