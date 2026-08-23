@@ -77,7 +77,7 @@ export function ContactForm() {
       setPickupDay(pickupDays[0]);
       setOpenSelect(null);
       setStatus("success");
-      setMessage("Thanks — we’ll be in touch shortly.");
+      setMessage("Thanks! We’ll be in touch shortly.");
     } catch {
       setStatus("error");
       setMessage("Something went wrong. Please call us or try again.");
