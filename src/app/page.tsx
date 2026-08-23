@@ -195,7 +195,7 @@ export default function Home() {
                 >
                   {site.sisterCompany.name}
                 </a>
-                , for fast, friendly, and reliable bottle recycling services.
+                , for fast, friendly, and reliable service.
               </p>
             </div>
           </div>

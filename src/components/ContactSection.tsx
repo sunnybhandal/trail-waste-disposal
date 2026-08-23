@@ -11,9 +11,7 @@ export function ContactSection() {
             Get a Free Quote for Calgary Trash & Waste Disposal
           </h2>
           <address className="mt-8 space-y-1 text-base not-italic leading-7 text-stone">
-            {site.addressLines.map((line) => (
-              <p key={line}>{line}</p>
-            ))}
+            <p>{site.addressLines.join(", ")}</p>
             <p>
               <a href={site.phoneHref} className="text-forest hover:underline">
                 {site.phone}
