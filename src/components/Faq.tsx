@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { FadeIn } from "@/components/FadeIn";
 import { faqs } from "@/lib/site";
 
 function FaqAnswer({
@@ -43,11 +44,13 @@ export function Faq() {
   return (
     <section id="faq" className="scroll-mt-24 border-t border-line">
       <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
-        <h2 className="font-display text-4xl leading-tight text-ink sm:text-5xl">
-          Frequently Asked Questions
-        </h2>
+        <FadeIn>
+          <h2 className="font-display text-4xl leading-tight text-ink sm:text-5xl">
+            Frequently Asked Questions
+          </h2>
+        </FadeIn>
 
-        <div className="mt-10 divide-y divide-line border-y border-line">
+        <FadeIn delay={120} className="mt-10 divide-y divide-line border-y border-line">
           {faqs.map((item, index) => {
             const isOpen = openIndex === index;
             const panelId = `faq-panel-${index}`;
@@ -105,7 +108,7 @@ export function Faq() {
               </div>
             );
           })}
-        </div>
+        </FadeIn>
       </div>
     </section>
   );

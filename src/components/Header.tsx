@@ -168,22 +168,28 @@ export function Header() {
           </a>
           <button
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line text-ink lg:hidden"
+            className="inline-flex h-12 w-12 items-center justify-center text-ink lg:hidden"
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={open ? "Close menu" : "Open menu"}
             onClick={() => setOpen((value) => !value)}
           >
             <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
-            <span className="relative block h-3.5 w-4">
+            <span className="relative block h-[21px] w-10">
               <span
-                className={`absolute left-0 h-px w-4 bg-current transition ${open ? "top-1.5 rotate-45" : "top-0"}`}
+                className={`absolute top-0 left-0 h-[3px] w-10 rounded-full bg-current transition-transform duration-300 ease-in-out ${
+                  open ? "translate-y-[9px] rotate-45" : "translate-y-0 rotate-0"
+                }`}
               />
               <span
-                className={`absolute left-0 top-1.5 h-px w-4 bg-current transition ${open ? "opacity-0" : ""}`}
+                className={`absolute top-[9px] left-0 h-[3px] w-10 rounded-full bg-current transition-[opacity,transform] duration-300 ease-in-out ${
+                  open ? "scale-x-0 opacity-0" : "scale-x-100 opacity-100"
+                }`}
               />
               <span
-                className={`absolute left-0 h-px w-4 bg-current transition ${open ? "top-1.5 -rotate-45" : "top-3"}`}
+                className={`absolute top-[18px] left-0 h-[3px] w-10 rounded-full bg-current transition-transform duration-300 ease-in-out ${
+                  open ? "-translate-y-[9px] -rotate-45" : "translate-y-0 rotate-0"
+                }`}
               />
             </span>
           </button>

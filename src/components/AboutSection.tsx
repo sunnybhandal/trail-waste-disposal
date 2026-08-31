@@ -1,12 +1,16 @@
 import Image from "next/image";
+import { FadeIn } from "@/components/FadeIn";
 import { site } from "@/lib/site";
 
 export function AboutSection() {
   return (
     <section id="about" className="scroll-mt-24">
       <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-16 sm:px-8 sm:py-24 lg:grid-cols-2 lg:gap-14">
-        <div>
-          <h2 className="font-display text-4xl leading-tight text-ink sm:text-5xl">
+        <FadeIn>
+          <p className="text-xs font-medium uppercase tracking-[0.18em] text-sage">
+            Who are we?
+          </p>
+          <h2 className="mt-4 font-display text-4xl leading-tight text-ink sm:text-5xl">
             A Local Calgary Waste & Garbage Company You Can Trust
           </h2>
           <div className="mt-8 space-y-6 text-base leading-8 text-stone sm:text-lg">
@@ -27,9 +31,9 @@ export function AboutSection() {
               {site.languages[site.languages.length - 1]}.
             </p>
           </div>
-        </div>
+        </FadeIn>
 
-        <div className="overflow-hidden rounded-3xl bg-cream">
+        <FadeIn delay={140} className="overflow-hidden rounded-xl bg-cream">
           <Image
             src="/images/truckSideClose.jpg"
             alt="Trail Waste Disposal truck branding and contact details"
@@ -37,7 +41,7 @@ export function AboutSection() {
             height={933}
             className="h-auto w-full object-contain"
           />
-        </div>
+        </FadeIn>
       </div>
     </section>
   );

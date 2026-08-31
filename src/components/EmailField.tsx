@@ -9,6 +9,7 @@ type EmailFieldProps = {
   dataStep?: string;
   value: string;
   onChange: (value: string) => void;
+  error?: string;
 };
 
 export function hasEmailFormat(value: string) {
@@ -25,10 +26,13 @@ export function EmailField({
   dataStep,
   value,
   onChange,
+  error,
 }: EmailFieldProps) {
   const [showError, setShowError] = useState(false);
   const invalid = value.length > 0 && !hasEmailFormat(value);
-  const highlightError = showError && invalid;
+  const formatError = showError && invalid ? "Enter a valid email address." : "";
+  const errorMessage = error || formatError;
+  const highlightError = Boolean(errorMessage);
   const errorId = `${id}-error`;
 
   return (
@@ -67,7 +71,7 @@ export function EmailField({
       />
       {highlightError ? (
         <p id={errorId} role="alert" className="mt-2 text-sm text-red-600">
-          Enter a valid email address.
+          {errorMessage}
         </p>
       ) : null}
     </div>

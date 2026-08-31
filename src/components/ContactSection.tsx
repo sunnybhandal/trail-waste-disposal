@@ -1,13 +1,17 @@
 import Link from "next/link";
 import { ContactForm } from "@/components/ContactForm";
+import { FadeIn } from "@/components/FadeIn";
 import { site } from "@/lib/site";
 
 export function ContactSection() {
   return (
     <section id="contact" className="scroll-mt-24 border-t border-line bg-cream/70">
       <div className="mx-auto grid max-w-6xl items-start gap-12 px-5 py-16 sm:px-8 sm:py-24 lg:grid-cols-[0.9fr_1.1fr]">
-        <div>
-          <h2 className="font-display text-4xl leading-tight text-ink sm:text-5xl">
+        <FadeIn>
+          <p className="text-xs font-medium uppercase tracking-[0.18em] text-sage">
+            Contact us
+          </p>
+          <h2 className="mt-4 font-display text-4xl leading-tight text-ink sm:text-5xl">
             Get a Free Quote for Calgary Trash & Waste Disposal
           </h2>
           <address className="mt-8 space-y-1 text-base not-italic leading-7 text-stone">
@@ -36,11 +40,11 @@ export function ContactSection() {
             </Link>
             .
           </p>
-        </div>
+        </FadeIn>
 
-        <div className="rounded-3xl border border-line bg-white p-5 sm:p-8">
+        <FadeIn delay={140} className="overflow-hidden rounded-xl border border-line bg-white p-5 sm:p-8">
           <ContactForm />
-        </div>
+        </FadeIn>
       </div>
     </section>
   );

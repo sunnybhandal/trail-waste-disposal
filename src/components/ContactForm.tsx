@@ -15,11 +15,27 @@ import {
 } from "@/lib/site";
 
 const fieldClass =
-  "mt-2 w-full rounded-xl border border-line bg-white px-3 py-2.5 text-sm text-ink outline-none transition focus:border-forest sm:text-base";
+  "mt-2 w-full rounded-xl border bg-white px-3 py-2.5 text-sm text-ink outline-none transition sm:text-base";
+
+type FieldErrors = {
+  name?: string;
+  phone?: string;
+  email?: string;
+  address?: string;
+};
+
+function inputClass(hasError: boolean) {
+  return `${fieldClass} ${
+    hasError ? "border-red-500 focus:border-red-500" : "border-line focus:border-forest"
+  }`;
+}
 
 export function ContactForm() {
+  const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
+  const [address, setAddress] = useState("");
+  const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
   const [businessType, setBusinessType] = useState<string>("Retail");
   const [serviceType, setServiceType] = useState<string>(serviceTypes[0]);
   const [dumpsterSize, setDumpsterSize] = useState<string>(dumpsterSizes[0]);
@@ -39,13 +55,44 @@ export function ContactForm() {
     setMounted(true);
   }, []);
 
-  function toggleSelect(name: string, open: boolean) {
-    setOpenSelect(open ? name : null);
+  function toggleSelect(selectName: string, open: boolean) {
+    setOpenSelect(open ? selectName : null);
+  }
+
+  function clearFieldError(field: keyof FieldErrors) {
+    setFieldErrors((current) => {
+      if (!current[field]) {
+        return current;
+      }
+      const next = { ...current };
+      delete next[field];
+      return next;
+    });
+  }
+
+  function validateRequiredFields() {
+    const next: FieldErrors = {};
+    if (!name.trim()) {
+      next.name = "Please enter your name";
+    }
+    if (phone.replace(/\D/g, "").length !== 10) {
+      next.phone = "Please enter your phone";
+    }
+    if (!email.trim()) {
+      next.email = "Please enter your email";
+    } else if (!hasEmailFormat(email)) {
+      next.email = "Enter a valid email address.";
+    }
+    if (!address.trim()) {
+      next.address = "Please enter your address";
+    }
+    setFieldErrors(next);
+    return Object.keys(next).length === 0;
   }
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (email.length > 0 && !hasEmailFormat(email)) {
+    if (!validateRequiredFields()) {
       return;
     }
 
@@ -67,8 +114,11 @@ export function ContactForm() {
       }
 
       form.reset();
+      setName("");
       setPhone("");
       setEmail("");
+      setAddress("");
+      setFieldErrors({});
       setBusinessType("Retail");
       setServiceType(serviceTypes[0]);
       setDumpsterSize(dumpsterSizes[0]);
@@ -89,52 +139,91 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="grid gap-4">
+    <form noValidate onSubmit={onSubmit} className="grid gap-4">
       <div className="grid grid-cols-2 gap-4">
-        <label className="block min-w-0 text-sm font-medium text-ink">
-          Name
-          <input
-            name="name"
-            type="text"
-            required
-            autoComplete="name"
-            className={fieldClass}
-          />
-        </label>
-        <label className="block min-w-0 text-sm font-medium text-ink">
-          Phone
-          <input
-            name="phone"
-            type="tel"
-            required
-            inputMode="numeric"
-            autoComplete="tel"
-            suppressHydrationWarning
-            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-            title="Use the format ###-###-####"
-            value={phone}
-            onChange={(event) => setPhone(formatPhone(event.target.value))}
-            className={fieldClass}
-          />
-        </label>
+        <div className="min-w-0">
+          <label className="block text-sm font-medium text-ink">
+            Name
+            <input
+              name="name"
+              type="text"
+              required
+              autoComplete="name"
+              value={name}
+              aria-invalid={Boolean(fieldErrors.name)}
+              onChange={(event) => {
+                setName(event.target.value);
+                clearFieldError("name");
+              }}
+              className={inputClass(Boolean(fieldErrors.name))}
+            />
+          </label>
+          {fieldErrors.name ? (
+            <p role="alert" className="mt-1.5 text-sm text-red-600">
+              {fieldErrors.name}
+            </p>
+          ) : null}
+        </div>
+        <div className="min-w-0">
+          <label className="block text-sm font-medium text-ink">
+            Phone
+            <input
+              name="phone"
+              type="tel"
+              required
+              inputMode="numeric"
+              autoComplete="tel"
+              suppressHydrationWarning
+              value={phone}
+              aria-invalid={Boolean(fieldErrors.phone)}
+              onChange={(event) => {
+                setPhone(formatPhone(event.target.value));
+                clearFieldError("phone");
+              }}
+              className={inputClass(Boolean(fieldErrors.phone))}
+            />
+          </label>
+          {fieldErrors.phone ? (
+            <p role="alert" className="mt-1.5 text-sm text-red-600">
+              {fieldErrors.phone}
+            </p>
+          ) : null}
+        </div>
       </div>
       <div className="grid gap-4 lg:grid-cols-2">
         <EmailField
           id="contact-email"
           required
           value={email}
-          onChange={setEmail}
+          error={fieldErrors.email}
+          onChange={(value) => {
+            setEmail(value);
+            clearFieldError("email");
+          }}
         />
-        <label className="block min-w-0 text-sm font-medium text-ink">
-          Address
-          <input
-            name="address"
-            type="text"
-            required
-            autoComplete="street-address"
-            className={fieldClass}
-          />
-        </label>
+        <div className="min-w-0">
+          <label className="block text-sm font-medium text-ink">
+            Address
+            <input
+              name="address"
+              type="text"
+              required
+              autoComplete="street-address"
+              value={address}
+              aria-invalid={Boolean(fieldErrors.address)}
+              onChange={(event) => {
+                setAddress(event.target.value);
+                clearFieldError("address");
+              }}
+              className={inputClass(Boolean(fieldErrors.address))}
+            />
+          </label>
+          {fieldErrors.address ? (
+            <p role="alert" className="mt-1.5 text-sm text-red-600">
+              {fieldErrors.address}
+            </p>
+          ) : null}
+        </div>
       </div>
       <div className="grid gap-4 lg:grid-cols-2">
         <div className="block min-w-0 text-sm font-medium text-ink">
@@ -222,7 +311,7 @@ export function ContactForm() {
           disabled={status === "sending"}
           className="inline-flex h-12 w-full items-center justify-center rounded-full bg-forest text-base font-medium text-white transition hover:bg-forest-deep disabled:opacity-70"
         >
-          {status === "sending" ? "Sending…" : "Get a Free Quote"}
+          {status === "sending" ? "Sending…" : "Send Details"}
         </button>
         {message ? (
           <p

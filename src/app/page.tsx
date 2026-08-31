@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { AboutSection } from "@/components/AboutSection";
 import { ContactSection } from "@/components/ContactSection";
+import { FadeIn } from "@/components/FadeIn";
 import { Faq } from "@/components/Faq";
 import { site } from "@/lib/site";
 
@@ -86,7 +87,7 @@ export default function Home() {
         id="home"
         className="mx-auto grid max-w-6xl scroll-mt-24 items-center gap-10 px-5 pb-16 pt-10 sm:px-8 sm:pb-24 sm:pt-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14 lg:pt-20"
       >
-        <div>
+        <FadeIn>
           <h1 className="font-display text-[2.35rem] leading-[1.08] text-ink sm:text-5xl lg:text-[3.5rem]">
             Calgary & Cochrane Waste Disposal Services
           </h1>
@@ -105,9 +106,9 @@ export default function Home() {
               Get a Free Quote
             </Link>
           </div>
-        </div>
+        </FadeIn>
 
-        <div className="overflow-hidden rounded-3xl bg-cream">
+        <FadeIn delay={140} className="overflow-hidden rounded-xl bg-cream">
           <Image
             src="/images/truckSide.png"
             alt="Trail Waste Disposal front-load garbage truck in Calgary"
@@ -116,7 +117,7 @@ export default function Home() {
             priority
             className="h-auto w-full object-contain"
           />
-        </div>
+        </FadeIn>
       </section>
 
       <section
@@ -125,12 +126,22 @@ export default function Home() {
       >
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-16 sm:px-8 sm:py-24 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
           <div>
-            <h2 className="font-display text-4xl leading-tight text-ink sm:text-5xl">
-              How Calgary Waste, Trash & Garbage Collection Works
-            </h2>
+            <FadeIn>
+              <p className="text-xs font-medium uppercase tracking-[0.18em] text-sage">
+                How it Works
+              </p>
+              <h2 className="mt-4 font-display text-4xl leading-tight text-ink sm:text-5xl">
+                How Calgary Waste, Trash & Garbage Collection Works
+              </h2>
+            </FadeIn>
             <ol className="mt-10">
               {howItWorksSteps.map((step, index) => (
-                <li key={step.key} className="relative flex gap-4 pb-8 last:pb-0 sm:gap-5 sm:pb-10">
+                <FadeIn
+                  as="li"
+                  key={step.key}
+                  delay={index * 180}
+                  className="relative flex gap-4 pb-8 last:pb-0 sm:gap-5 sm:pb-10"
+                >
                   {index !== howItWorksSteps.length - 1 ? (
                     <span
                       aria-hidden="true"
@@ -143,20 +154,33 @@ export default function Home() {
                   <p className="pt-2 font-display text-2xl font-medium leading-snug text-forest">
                     {step.title}
                   </p>
-                </li>
+                </FadeIn>
               ))}
             </ol>
-            <p className="mt-8 text-base leading-8 text-stone sm:text-lg">
-              Whether you manage a business, apartment complex, or multi-unit
-              property in Calgary, Cochrane, or the surrounding areas, our team
-              collects your waste, trash, and garbage on time, every time. We
-              guarantee no disruptions, no missed pickups, and no hidden fees.
-              We’re small enough to care, and experienced enough to get the job
-              done right.
-            </p>
+            <FadeIn delay={80}>
+              <p className="mt-8 text-base leading-8 text-stone sm:text-lg">
+                Whether you manage a business, apartment complex, or multi-unit
+                property in Calgary, Cochrane, or the surrounding areas, our team
+                collects your waste, trash, and garbage on time, every time. We
+                guarantee no disruptions, no missed pickups, and no hidden fees.
+                We’re small enough to care, and experienced enough to get the job
+                done right.
+              </p>
+              <p className="mt-8 font-display text-xl font-medium text-ink sm:text-2xl">
+                Ready to discuss your options?
+              </p>
+              <div className="mt-5">
+                <Link
+                  href="/#contact"
+                  className="flex h-12 w-full cursor-pointer items-center justify-center rounded-full bg-forest px-6 text-base font-medium text-white transition hover:bg-forest-deep sm:inline-flex sm:w-auto"
+                >
+                  Contact us
+                </Link>
+              </div>
+            </FadeIn>
           </div>
 
-          <div className="overflow-hidden rounded-3xl bg-cream">
+          <FadeIn delay={120} className="overflow-hidden rounded-xl bg-cream">
             <Image
               src="/images/soloDumpster.jpg"
               alt="Trail Waste Disposal commercial front-load garbage dumpster"
@@ -164,11 +188,11 @@ export default function Home() {
               height={1098}
               className="h-auto w-full object-contain"
             />
-          </div>
+          </FadeIn>
         </div>
 
         <div className="mx-auto max-w-6xl px-5 pb-16 sm:px-8 sm:pb-24">
-          <div className="flex flex-col items-start gap-6 rounded-3xl border border-line bg-white px-5 py-6 sm:flex-row sm:items-center sm:gap-10 sm:px-8 sm:py-8">
+          <FadeIn className="flex flex-col items-start gap-6 rounded-xl border border-line bg-white px-5 py-6 sm:flex-row sm:items-center sm:gap-10 sm:px-8 sm:py-8">
             <a
               href={site.sisterCompany.href}
               target="_blank"
@@ -198,7 +222,7 @@ export default function Home() {
                 , for fast, friendly, and reliable service.
               </p>
             </div>
-          </div>
+          </FadeIn>
         </div>
       </section>
 
