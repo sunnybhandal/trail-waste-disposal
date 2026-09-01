@@ -175,19 +175,19 @@ export function Header() {
             onClick={() => setOpen((value) => !value)}
           >
             <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
-            <span className="relative block h-[21px] w-10">
+            <span className="relative block h-[21px] w-8">
               <span
-                className={`absolute top-0 left-0 h-[3px] w-10 rounded-full bg-current transition-transform duration-300 ease-in-out ${
+                className={`absolute top-0 left-0 h-[3px] w-8 rounded-full bg-current transition-transform duration-300 ease-in-out ${
                   open ? "translate-y-[9px] rotate-45" : "translate-y-0 rotate-0"
                 }`}
               />
               <span
-                className={`absolute top-[9px] left-0 h-[3px] w-10 rounded-full bg-current transition-[opacity,transform] duration-300 ease-in-out ${
+                className={`absolute top-[9px] left-0 h-[3px] w-8 rounded-full bg-current transition-[opacity,transform] duration-300 ease-in-out ${
                   open ? "scale-x-0 opacity-0" : "scale-x-100 opacity-100"
                 }`}
               />
               <span
-                className={`absolute top-[18px] left-0 h-[3px] w-10 rounded-full bg-current transition-transform duration-300 ease-in-out ${
+                className={`absolute top-[18px] left-0 h-[3px] w-8 rounded-full bg-current transition-transform duration-300 ease-in-out ${
                   open ? "-translate-y-[9px] -rotate-45" : "translate-y-0 rotate-0"
                 }`}
               />
