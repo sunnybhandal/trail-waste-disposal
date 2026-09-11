@@ -9,7 +9,7 @@ export default function NotFound() {
       </p>
       <Link
         href="/"
-        className="mt-8 inline-flex h-12 cursor-pointer items-center rounded-full bg-forest px-6 text-sm font-medium text-white"
+        className="mt-8 inline-flex h-12 cursor-pointer items-center rounded-full border border-forest bg-forest px-6 text-sm font-medium text-white transition-colors hover:bg-white hover:text-forest"
       >
         Back home
       </Link>

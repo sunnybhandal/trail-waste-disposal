@@ -26,10 +26,7 @@ export const navLinks = [
 
 export const legalLinks = [
   { href: "/privacy-policy", label: "Privacy Policy" },
-  { href: "/terms-of-use", label: "Terms of Use" },
-  { href: "/service-terms", label: "Service Terms & Conditions" },
-  { href: "/disputes", label: "Disputes/Arbitration" },
-  { href: "/accessibility", label: "Accessibility" },
+  { href: "/terms-of-use", label: "Terms & Conditions" },
 ] as const;
 
 export const industries = [
@@ -42,25 +39,18 @@ export const industries = [
 ] as const;
 
 export const businessTypes = [
-  "Auto, Salon or other Personal Services",
-  "Construction & Demolition",
-  "Distribution & Warehousing",
-  "Healthcare & Professional Services",
-  "Manufacturing & Industrial",
-  "Offices & Building Management",
-  "Other",
-  "Real Estate, Rental & Leasing",
-  "Restaurants & Hospitality",
-  "Retail",
+  "Commercial",
+  "Multi-Unit Property",
 ] as const;
 
-export const serviceTypes = ["Trash", "Recycle", "Organics"] as const;
+export const serviceTypes = ["Garbage", "Recycle", "Organics"] as const;
 
 export const dumpsterSizes = [
   "3 Yard Waste Bin (5' 10\" W 4' 5\" H 3' 6\" D)",
   "4 Yard Waste Bin (5' 10\" W 5' 1\" H 4' 2\" D)",
   "6 Yard Waste Bin (6' 0\" W 5' 10\" H 5' 8\" D)",
   "8 Yard Waste Bin (6' 10\" W 6' 2\" H 6' 10\" D)",
+  "I’d like to discuss my options",
 ] as const;
 
 export const dumpsterSizeGuide = [
@@ -97,7 +87,7 @@ export const dumpsterSizeGuide = [
   },
 ] as const;
 
-export const quantities = ["1", "2", "3", "4", "5"] as const;
+export const quantities = ["1", "2", "3", "4", "5+"] as const;
 
 export const pickupFrequencies = ["Weekly", "Bi-weekly", "Monthly"] as const;
 
@@ -108,6 +98,7 @@ export const pickupDays = [
   "Wednesday",
   "Thursday",
   "Friday",
+  "Saturday",
 ] as const;
 
 export const careerPerks = [
@@ -126,15 +117,16 @@ export const careerRequirements = [
 
 export const faqs = [
   {
-    question: "What areas do you serve for waste and garbage pickup?",
+    question: "What areas do you serve for waste collection?",
     answer:
-      "We provide commercial waste, trash, and garbage collection in Calgary, Cochrane, and surrounding communities. If you’re just outside the city, call us at {link} and we’ll let you know if we can add you to a nearby route.",
+      "We provide commercial waste collection in Calgary and Cochrane. If you’re just outside the city, call us at {link} and we’ll let you know if we can add you to a nearby route.",
     link: { href: "tel:+14032532155", label: "403-253-2155" },
   },
   {
-    question: "Do you offer residential trash pickup?",
+    question: "How do I get started?",
     answer:
-      "We don’t offer residential curbside trash pickup. We specialize in commercial front-load dumpsters for businesses, apartment complexes, and multi-unit properties, and we’ll help you choose a bin size that fits.",
+      "Getting started is easy. Tell us about your business, property, and waste collection needs through our {link}. We’ll review your requirements, confirm availability, and work with you to establish a pickup schedule that fits your property.",
+    link: { href: "/#contact", label: "contact form" },
   },
   {
     question: "What does your pricing structure look like?",
@@ -145,18 +137,7 @@ export const faqs = [
   {
     question: "What kinds of businesses do you collect waste from?",
     answer:
-      "We collect trash, recycling, and organics for retail stores, restaurants, office buildings, warehouses, commercial property managers, apartment complexes, and other small businesses across the Calgary area.",
-  },
-  {
-    question:
-      "How can I cancel my waste collection service? Are there cancellation fees?",
-    answer:
-      "If you need to cancel your service, simply contact our team and we’ll help you through the process. We aim to keep cancellations straightforward and transparent, with no unexpected fees. Any applicable cancellation terms will be reviewed with you before your service begins.",
-  },
-  {
-    question: "What payment methods do you accept?",
-    answer:
-      "We offer convenient payment options for our commercial customers. Contact our team to learn more about available payment methods and billing options.",
+      "We collect garbage, recycling, and organics for retail stores, restaurants, office buildings, warehouses, commercial property managers, apartment complexes, and other small businesses across the Calgary area.",
   },
   {
     question: "What if I need to change my scheduled pickup day?",
@@ -166,48 +147,12 @@ export const faqs = [
   {
     question: "What size dumpster do I need?",
     answer:
-      "The right dumpster size depends on the type and volume of waste your business produces, as well as how frequently you need pickups. We’ll work with you to determine the appropriate bin size and pickup schedule for your needs.",
+      "The right dumpster size depends on the type and volume of waste your business produces, as well as how frequently you need pickups. We’ll work with you to determine the appropriate bin size and pickup schedule for your needs. If you want any idea, see our {link}.",
+    link: { href: "#dumpster-size-guide", label: "Dumpster Size Chart" },
   },
   {
-    question: "How often can my dumpster be picked up?",
+    question: "Do you offer residential garbage pickup?",
     answer:
-      "Pickup frequency is based on your business’s waste volume and requirements. We can help establish a schedule that keeps your dumpster from overflowing while avoiding unnecessary pickups.",
-  },
-  {
-    question: "What types of waste do you collect?",
-    answer:
-      "We provide commercial waste, trash, garbage, recycling, and organics collection for businesses and multi-unit properties. If you’re unsure whether we can handle a particular type of waste, contact us and we’ll be happy to help.",
-  },
-  {
-    question: "Do you provide waste collection for restaurants?",
-    answer:
-      "Yes. We provide commercial waste collection for restaurants and other businesses that generate regular amounts of commercial waste. We can help determine the appropriate dumpster size and pickup frequency for your operation.",
-  },
-  {
-    question: "Do you offer recycling and organics collection?",
-    answer:
-      "Yes. We offer commercial recycling and organics collection in addition to regular garbage and waste services. Let us know what your business needs and we can help create the right collection plan.",
-  },
-  {
-    question:
-      "What happens if my dumpster is full before my scheduled pickup?",
-    answer:
-      "If you find that your dumpster is filling up faster than expected, contact us and we’ll work with you to determine the best solution. This may include adjusting your pickup frequency or reviewing your dumpster size.",
-  },
-  {
-    question: "Do you service apartment buildings and multi-unit properties?",
-    answer:
-      "Yes. We provide commercial waste collection for apartment complexes and multi-unit properties, in addition to businesses and other commercial properties.",
-  },
-  {
-    question: "What areas do you service?",
-    answer:
-      "We provide commercial waste collection throughout Calgary, Cochrane, and surrounding communities. If you’re located just outside our regular service area, contact us and we’ll let you know if we can accommodate your property.",
-  },
-  {
-    question: "How do I get started?",
-    answer:
-      "Getting started is easy. Tell us about your business, property, and waste collection needs through our {link}. We’ll review your requirements, confirm availability, and work with you to establish a pickup schedule that fits your property.",
-    link: { href: "/#contact", label: "quote form" },
+      "We don’t offer residential curbside trash pickup. We specialize in commercial front-load dumpsters for businesses, apartment complexes, and multi-unit properties, and we’ll help you choose a bin size that fits.",
   },
 ] as const;

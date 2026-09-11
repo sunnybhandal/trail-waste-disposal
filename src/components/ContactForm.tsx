@@ -36,9 +36,9 @@ export function ContactForm() {
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
-  const [businessType, setBusinessType] = useState<string>("Retail");
+  const [businessType, setBusinessType] = useState<string>(businessTypes[0]);
   const [serviceType, setServiceType] = useState<string>(serviceTypes[0]);
-  const [dumpsterSize, setDumpsterSize] = useState<string>(dumpsterSizes[0]);
+  const [dumpsterSize, setDumpsterSize] = useState<string>(dumpsterSizes[1]);
   const [quantity, setQuantity] = useState<string>(quantities[0]);
   const [pickupFrequency, setPickupFrequency] = useState<string>(
     pickupFrequencies[0],
@@ -119,9 +119,9 @@ export function ContactForm() {
       setEmail("");
       setAddress("");
       setFieldErrors({});
-      setBusinessType("Retail");
+      setBusinessType(businessTypes[0]);
       setServiceType(serviceTypes[0]);
-      setDumpsterSize(dumpsterSizes[0]);
+      setDumpsterSize(dumpsterSizes[1]);
       setQuantity(quantities[0]);
       setPickupFrequency(pickupFrequencies[0]);
       setPickupDay(pickupDays[0]);
@@ -309,7 +309,7 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={status === "sending"}
-          className="inline-flex h-12 w-full items-center justify-center rounded-full bg-forest text-base font-medium text-white transition hover:bg-forest-deep disabled:opacity-70"
+          className="inline-flex h-12 w-full items-center justify-center rounded-full border border-forest bg-forest text-base font-medium text-white transition-colors hover:bg-white hover:text-forest disabled:opacity-70"
         >
           {status === "sending" ? "Sending…" : "Send Details"}
         </button>

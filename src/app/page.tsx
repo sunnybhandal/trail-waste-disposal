@@ -95,13 +95,13 @@ export default function Home() {
             Show us your bill and we’ll beat your current price.
           </p>
           <p className="mt-6 max-w-md text-base leading-7 text-stone sm:text-lg">
-            Commercial trash, garbage, and recycling dumpsters for businesses
-            and multi-unit properties.
+            Commercial garbage and recycling dumpsters for businesses and
+            multi-unit properties.
           </p>
           <div className="mt-8">
             <Link
               href="/#contact"
-              className="flex h-12 w-full cursor-pointer items-center justify-center rounded-full bg-forest px-6 text-base font-medium text-white transition hover:bg-forest-deep sm:inline-flex sm:w-auto"
+              className="flex h-12 w-full cursor-pointer items-center justify-center rounded-full border border-forest bg-forest px-6 text-base font-medium text-white transition-colors hover:bg-white hover:text-forest sm:inline-flex sm:w-auto"
             >
               Get a Free Quote
             </Link>
@@ -131,7 +131,7 @@ export default function Home() {
                 How it Works
               </p>
               <h2 className="mt-4 font-display text-4xl leading-tight text-ink sm:text-5xl">
-                How Calgary Waste, Trash & Garbage Collection Works
+                Calgary Waste Collection Services
               </h2>
             </FadeIn>
             <ol className="mt-10">
@@ -160,11 +160,9 @@ export default function Home() {
             <FadeIn delay={80}>
               <p className="mt-8 text-base leading-8 text-stone sm:text-lg">
                 Whether you manage a business, apartment complex, or multi-unit
-                property in Calgary, Cochrane, or the surrounding areas, our team
-                collects your waste, trash, and garbage on time, every time. We
-                guarantee no disruptions, no missed pickups, and no hidden fees.
-                We’re small enough to care, and experienced enough to get the job
-                done right.
+                property in Calgary or Cochrane, our team collects your waste on
+                time, every time. We guarantee no disruptions, no missed pickups,
+                and no hidden fees.
               </p>
               <p className="mt-8 font-display text-xl font-medium text-ink sm:text-2xl">
                 Ready to discuss your options?
@@ -172,7 +170,7 @@ export default function Home() {
               <div className="mt-5">
                 <Link
                   href="/#contact"
-                  className="flex h-12 w-full cursor-pointer items-center justify-center rounded-full bg-forest px-6 text-base font-medium text-white transition hover:bg-forest-deep sm:inline-flex sm:w-auto"
+                  className="flex h-12 w-full cursor-pointer items-center justify-center rounded-full border border-forest bg-forest px-6 text-base font-medium text-white transition-colors hover:bg-white hover:text-forest sm:inline-flex sm:w-auto"
                 >
                   Contact us
                 </Link>
@@ -220,6 +218,10 @@ export default function Home() {
                   {site.sisterCompany.name}
                 </a>
                 , for fast, friendly, and reliable service.
+              </p>
+              <p className="mt-3 text-base leading-7 text-stone sm:text-lg">
+                You can bundle your waste and recycling needs for an additional
+                discount.
               </p>
             </div>
           </FadeIn>

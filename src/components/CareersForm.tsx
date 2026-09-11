@@ -100,7 +100,7 @@ export function CareersForm() {
           <button
             type="button"
             onClick={() => fileInputRef.current?.click()}
-            className="cursor-pointer rounded-full bg-forest px-4 py-2 text-sm font-medium text-white transition hover:bg-forest-deep"
+            className="cursor-pointer rounded-full border border-forest bg-forest px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-white hover:text-forest"
           >
             Choose File
           </button>
@@ -116,7 +116,7 @@ export function CareersForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="inline-flex h-12 w-full cursor-pointer items-center justify-center rounded-full bg-forest text-base font-medium text-white transition hover:bg-forest-deep disabled:opacity-70 sm:w-auto sm:px-8"
+        className="inline-flex h-12 w-full cursor-pointer items-center justify-center rounded-full border border-forest bg-forest text-base font-medium text-white transition-colors hover:bg-white hover:text-forest disabled:opacity-70 sm:w-auto sm:px-8"
       >
         {status === "sending" ? "Sending…" : "Submit Application"}
       </button>

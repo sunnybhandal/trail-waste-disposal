@@ -1,10 +1,15 @@
 "use client";
 
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { dumpsterSizeGuide } from "@/lib/site";
 
-export function DumpsterSizeGuide() {
+type DumpsterSizeGuideProps = {
+  children?: ReactNode;
+  className?: string;
+};
+
+export function DumpsterSizeGuide({ children, className }: DumpsterSizeGuideProps) {
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const titleId = useId();
@@ -19,8 +24,14 @@ export function DumpsterSizeGuide() {
       return;
     }
 
+    const scrollbarWidth = Math.max(
+      0,
+      window.innerWidth - document.documentElement.clientWidth,
+    );
     const previousOverflow = document.body.style.overflow;
+    const previousPadding = document.body.style.paddingRight;
     document.body.style.overflow = "hidden";
+    document.body.style.paddingRight = `${scrollbarWidth}px`;
     closeRef.current?.focus();
 
     function onKeyDown(event: KeyboardEvent) {
@@ -32,6 +43,7 @@ export function DumpsterSizeGuide() {
     document.addEventListener("keydown", onKeyDown);
     return () => {
       document.body.style.overflow = previousOverflow;
+      document.body.style.paddingRight = previousPadding;
       document.removeEventListener("keydown", onKeyDown);
     };
   }, [open]);
@@ -57,7 +69,7 @@ export function DumpsterSizeGuide() {
               <button
                 ref={closeRef}
                 type="button"
-                aria-label="Close dumpster size guide"
+                aria-label="Close dumpster size chart"
                 onClick={() => setOpen(false)}
                 className="absolute top-4 right-4 inline-flex h-9 w-9 items-center justify-center rounded-full text-stone transition hover:bg-cream hover:text-ink"
               >
@@ -77,7 +89,7 @@ export function DumpsterSizeGuide() {
                 id={titleId}
                 className="pr-12 font-display text-2xl leading-tight text-ink sm:text-3xl"
               >
-                Dumpster Size Guide
+                Dumpster Size Chart
               </h3>
               <div className="mt-6 overflow-x-auto">
                 <table className="min-w-[44rem] w-full border-collapse">
@@ -149,16 +161,34 @@ export function DumpsterSizeGuide() {
         )
       : null;
 
-  return (
-    <>
+  const trigger = children ? (
+    <button
+      type="button"
+      onClick={() => setOpen(true)}
+      className={
+        className ??
+        "font-medium text-forest underline decoration-line underline-offset-4 transition hover:decoration-forest"
+      }
+    >
+      {children}
+    </button>
+  ) : (
+    <span className="text-sm font-medium text-ink">
+      (
       <button
         type="button"
-        aria-label="Dumpster size information"
         onClick={() => setOpen(true)}
-        className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-forest text-[11px] font-semibold leading-none text-forest transition hover:bg-forest hover:text-white"
+        className="text-forest underline decoration-line underline-offset-2 transition hover:decoration-forest"
       >
-        i
+        Size Chart
       </button>
+      )
+    </span>
+  );
+
+  return (
+    <>
+      {trigger}
       {modal}
     </>
   );

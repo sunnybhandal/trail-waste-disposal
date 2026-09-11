@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { DumpsterSizeGuide } from "@/components/DumpsterSizeGuide";
 import { FadeIn } from "@/components/FadeIn";
 import { faqs } from "@/lib/site";
 
@@ -17,7 +18,12 @@ function FaqAnswer({
     const isInternal = item.link.href.startsWith("/");
     const linkClass =
       "font-medium text-forest underline decoration-line underline-offset-4 hover:decoration-forest";
-    const linked = isInternal ? (
+    const linked =
+      item.link.href === "#dumpster-size-guide" ? (
+      <DumpsterSizeGuide className={linkClass}>
+        {item.link.label}
+      </DumpsterSizeGuide>
+    ) : isInternal ? (
       <Link href={item.link.href} className={linkClass}>
         {item.link.label}
       </Link>
@@ -72,11 +78,11 @@ export function Faq() {
                     <span>{item.question}</span>
                     <span
                       aria-hidden="true"
-                      className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-line bg-white text-forest transition-transform duration-300 ease-out ${isOpen ? "rotate-180" : ""}`}
+                      className={`shrink-0 text-forest transition-transform duration-300 ease-out ${isOpen ? "rotate-180" : ""}`}
                     >
                       <svg
                         viewBox="0 0 16 16"
-                        className="h-4 w-4"
+                        className="h-5 w-5"
                         fill="none"
                         stroke="currentColor"
                         strokeWidth="1.8"

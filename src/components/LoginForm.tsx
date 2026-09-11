@@ -61,7 +61,7 @@ export function LoginForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="inline-flex h-12 w-full cursor-pointer items-center justify-center rounded-full bg-forest text-sm font-medium text-white transition hover:bg-forest-deep disabled:opacity-70"
+        className="inline-flex h-12 w-full cursor-pointer items-center justify-center rounded-full border border-forest bg-forest text-sm font-medium text-white transition-colors hover:bg-white hover:text-forest disabled:opacity-70"
       >
         {status === "sending" ? "Signing in…" : "Sign in"}
       </button>

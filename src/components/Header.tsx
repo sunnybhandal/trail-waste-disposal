@@ -130,7 +130,19 @@ export function Header() {
       }`}
     >
       <div className="mx-auto flex h-[4.5rem] max-w-6xl items-center justify-between px-5 sm:h-20 sm:px-8">
-        <Link href="/" aria-label="Trail Waste Disposal home" onClick={() => setOpen(false)}>
+        <Link
+          href="/"
+          aria-label="Trail Waste Disposal home"
+          onClick={(event) => {
+            setOpen(false);
+            setActive("");
+            if (pathname === "/") {
+              event.preventDefault();
+              window.history.replaceState(null, "", "/");
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+          }}
+        >
           <Logo />
         </Link>
 
@@ -154,12 +166,12 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <a
-            href={site.phoneHref}
-            className="hidden h-10 cursor-pointer items-center rounded-full bg-forest px-4 text-sm font-medium text-white transition-colors hover:bg-forest-deep lg:inline-flex"
+          <Link
+            href="/#contact"
+            className="hidden h-10 cursor-pointer items-center rounded-full border border-forest bg-forest px-4 text-sm font-medium text-white transition-colors hover:bg-white hover:text-forest lg:inline-flex"
           >
-            {site.phone}
-          </a>
+            Free Quote
+          </Link>
           <a
             href={site.customerPortalHref}
             className="hidden h-10 cursor-pointer items-center rounded-full border border-line px-4 text-sm font-medium text-ink transition-colors hover:border-forest hover:text-forest lg:inline-flex"
@@ -239,13 +251,14 @@ export function Header() {
               >
                 Account Login
               </a>
-              <a
-                href={site.phoneHref}
-                className="inline-flex h-12 cursor-pointer items-center justify-center rounded-full bg-forest text-base font-medium text-white"
+              <Link
+                href="/#contact"
+                onClick={() => setOpen(false)}
+                className="inline-flex h-12 cursor-pointer items-center justify-center rounded-full border border-forest bg-forest text-base font-medium text-white transition-colors hover:bg-white hover:text-forest"
                 tabIndex={open ? undefined : -1}
               >
-                {site.phone}
-              </a>
+                Free Quote
+              </Link>
             </div>
           </nav>
         </div>

@@ -12,7 +12,7 @@ export function ContactSection() {
             Contact us
           </p>
           <h2 className="mt-4 font-display text-4xl leading-tight text-ink sm:text-5xl">
-            Get a Free Quote for Calgary Trash & Waste Disposal
+            Get a Free Quote for Calgary Waste Disposal
           </h2>
           <address className="mt-8 space-y-1 text-base not-italic leading-7 text-stone">
             <p>{site.addressLines.join(", ")}</p>
@@ -36,13 +36,13 @@ export function ContactSection() {
             </Link>{" "}
             and the website{" "}
             <Link href="/terms-of-use" className="text-forest underline underline-offset-2">
-              Terms of Use
+              Terms & Conditions
             </Link>
             .
           </p>
         </FadeIn>
 
-        <FadeIn delay={140} className="overflow-hidden rounded-xl border border-line bg-white p-5 sm:p-8">
+        <FadeIn delay={140} className="relative z-10 rounded-xl border border-line bg-white p-5 sm:p-8">
           <ContactForm />
         </FadeIn>
       </div>
