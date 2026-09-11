@@ -6,7 +6,7 @@ export function Footer() {
     <footer className="border-t border-line bg-white">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-5 text-xs text-stone sm:px-8">
         <p>
-          © {new Date().getFullYear()} {site.name}. All rights reserved.
+          © {new Date().getFullYear()} {site.name}.
         </p>
         <nav aria-label="Legal" className="flex shrink-0 items-center gap-x-2">
           {legalLinks.map((link, index) => (
