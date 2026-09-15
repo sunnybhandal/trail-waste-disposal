@@ -96,7 +96,7 @@ export function DumpsterSizeGuide({ children, className }: DumpsterSizeGuideProp
                   <thead>
                     <tr>
                       <th className={labelClass} scope="row">
-                        Product
+                        Dumpster
                       </th>
                       {dumpsterSizeGuide.map((size) => (
                         <th
@@ -124,21 +124,11 @@ export function DumpsterSizeGuide({ children, className }: DumpsterSizeGuideProp
                     </tr>
                     <tr>
                       <th className={labelClass} scope="row">
-                        Holds
+                        Capacity
                       </th>
                       {dumpsterSizeGuide.map((size) => (
                         <td key={size.name} className={`${cellClass} uppercase`}>
                           {size.holds}
-                        </td>
-                      ))}
-                    </tr>
-                    <tr>
-                      <th className={labelClass} scope="row">
-                        Pickup Frequency
-                      </th>
-                      {dumpsterSizeGuide.map((size) => (
-                        <td key={size.name} className={cellClass}>
-                          {size.pickupFrequency}
                         </td>
                       ))}
                     </tr>

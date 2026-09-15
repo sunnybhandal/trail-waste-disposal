@@ -55,35 +55,28 @@ export const dumpsterSizes = [
 
 export const dumpsterSizeGuide = [
   {
-    name: "3 Yard Dumpster",
+    name: "3 Yard",
     dimensions: ["5' 10\" W", "4' 5\" H", "3' 6\" D"],
-    holds: "600 LBS, 21 GARBAGE BAGS",
-    pickupFrequency: "Up to 5x a week",
-    recommendedUse: "Ideal for businesses with up to 50 employees",
+    holds: "600 LBS",
+    recommendedUse: "Small businesses",
   },
   {
-    name: "4 Yard Dumpster",
+    name: "4 Yard",
     dimensions: ["5' 10\" W", "5' 1\" H", "4' 2\" D"],
-    holds: "800 LBS, 27 GARBAGE BAGS",
-    pickupFrequency: "Up to 5x a week",
-    recommendedUse:
-      "Best for midsize restaurants and companies with up to 100 employees",
+    holds: "800 LBS",
+    recommendedUse: "Midsize restaurants and companies",
   },
   {
-    name: "6 Yard Dumpster",
+    name: "6 Yard",
     dimensions: ["6' 0\" W", "5' 10\" H", "5' 8\" D"],
-    holds: "1,200 LBS, 41 GARBAGE BAGS",
-    pickupFrequency: "Up to 5x a week",
-    recommendedUse:
-      "Ideal for mid to large businesses with up to 250 employees",
+    holds: "1,200 LBS",
+    recommendedUse: "Mid to large businesses",
   },
   {
-    name: "8 Yard Dumpster",
+    name: "8 Yard",
     dimensions: ["6' 10\" W", "6' 2\" H", "6' 10\" D"],
-    holds: "1,800 LBS, 54 GARBAGE BAGS",
-    pickupFrequency: "Up to 5x a week",
-    recommendedUse:
-      "Our largest recurring size—best for large businesses with up to 500 employees",
+    holds: "1,800 LBS",
+    recommendedUse: "Large businesses",
   },
 ] as const;
 
