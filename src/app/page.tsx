@@ -85,39 +85,56 @@ export default function Home() {
     <>
       <section
         id="home"
-        className="mx-auto grid max-w-6xl scroll-mt-24 items-center gap-10 px-5 pb-16 pt-10 sm:px-8 sm:pb-24 sm:pt-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14 lg:pt-20"
+        className="relative scroll-mt-24 overflow-hidden bg-white"
       >
-        <FadeIn>
-          <h1 className="font-display text-[2.35rem] leading-[1.08] text-ink sm:text-5xl lg:text-[3.5rem]">
-            Calgary & Cochrane Waste Disposal Services
-          </h1>
-          <p className="mt-5 max-w-lg font-display text-2xl leading-snug text-forest sm:text-3xl">
-            Show us your bill and we’ll beat your current price.
-          </p>
-          <p className="mt-6 max-w-md text-base leading-7 text-stone sm:text-lg">
-            Commercial garbage and recycling dumpsters for businesses and
-            multi-unit properties.
-          </p>
-          <div className="mt-8">
-            <Link
-              href="/#contact"
-              className="flex h-12 w-full cursor-pointer items-center justify-center rounded-full border border-forest bg-forest px-6 text-base font-medium text-white transition-colors hover:bg-white hover:text-forest sm:inline-flex sm:w-auto"
-            >
-              Get a Free Quote
-            </Link>
-          </div>
-        </FadeIn>
-
-        <FadeIn delay={140} className="overflow-hidden rounded-xl bg-cream">
+        <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[72%] lg:block lg:w-[64%]">
           <Image
             src="/images/truckSide.png"
             alt="Trail Waste Disposal front-load garbage truck in Calgary"
-            width={1600}
-            height={1108}
+            fill
             priority
-            className="h-auto w-full object-contain"
+            className="object-contain object-right"
+            sizes="64vw"
           />
-        </FadeIn>
+        </div>
+        <div className="pointer-events-none absolute inset-0 hidden lg:block lg:bg-gradient-to-r lg:from-white lg:from-[34%] lg:via-white/55 lg:via-[56%] lg:to-transparent" />
+
+        <div className="relative mx-auto flex max-w-6xl flex-col items-start px-5 pb-16 pt-10 sm:px-8 sm:pb-20 sm:pt-12 lg:min-h-[36rem] lg:flex-row lg:items-center lg:py-12">
+          <FadeIn className="max-w-lg">
+            <h1 className="font-display text-[2.35rem] leading-[1.08] text-ink sm:text-5xl lg:text-[3.5rem]">
+              Calgary & Cochrane Waste Disposal Services
+            </h1>
+            <p className="mt-5 max-w-lg font-display text-2xl leading-snug text-forest sm:text-3xl">
+              Show us your bill and we’ll beat your current price.
+            </p>
+            <p className="mt-6 max-w-md text-base leading-7 text-stone sm:text-lg">
+              Commercial garbage and recycling dumpsters for businesses and
+              multi-unit properties.
+            </p>
+            <div className="mt-8">
+              <Link
+                href="/#contact"
+                className="flex h-12 w-full cursor-pointer items-center justify-center rounded-full border border-forest bg-forest px-6 text-base font-medium text-white transition-colors hover:bg-white hover:text-forest sm:inline-flex sm:w-auto"
+              >
+                Get a Free Quote
+              </Link>
+            </div>
+          </FadeIn>
+
+          <FadeIn
+            delay={140}
+            className="mt-10 w-full overflow-hidden rounded-xl bg-cream lg:hidden"
+          >
+            <Image
+              src="/images/truckSide.png"
+              alt="Trail Waste Disposal front-load garbage truck in Calgary"
+              width={1600}
+              height={1108}
+              priority
+              className="h-auto w-full object-contain"
+            />
+          </FadeIn>
+        </div>
       </section>
 
       <section
