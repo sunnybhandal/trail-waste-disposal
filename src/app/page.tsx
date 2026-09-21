@@ -6,6 +6,12 @@ import { FadeIn } from "@/components/FadeIn";
 import { Faq } from "@/components/Faq";
 import { site } from "@/lib/site";
 
+const heroPerks = [
+  "No Hidden Fees",
+  "No Missed Pickups",
+  "Locally Owned",
+] as const;
+
 const howItWorksSteps = [
   {
     key: "needs",
@@ -85,7 +91,7 @@ export default function Home() {
     <>
       <section
         id="home"
-        className="relative scroll-mt-24 overflow-hidden bg-white"
+        className="relative scroll-mt-24 bg-white lg:overflow-hidden"
       >
         <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[72%] lg:block lg:w-[64%]">
           <Image
@@ -97,10 +103,10 @@ export default function Home() {
             sizes="64vw"
           />
         </div>
-        <div className="pointer-events-none absolute inset-0 hidden lg:block lg:bg-gradient-to-r lg:from-white lg:from-[34%] lg:via-white/55 lg:via-[56%] lg:to-transparent" />
+        <div className="pointer-events-none absolute inset-0 hidden lg:block lg:bg-gradient-to-r lg:from-white lg:from-[44%] lg:via-white lg:via-[47%] lg:to-transparent lg:to-[55%]" />
 
-        <div className="relative mx-auto flex max-w-6xl flex-col items-start px-5 pb-16 pt-10 sm:px-8 sm:pb-20 sm:pt-12 lg:min-h-[36rem] lg:flex-row lg:items-center lg:py-12">
-          <FadeIn className="max-w-lg">
+        <div className="relative mx-auto flex w-full max-w-6xl flex-col items-stretch px-5 pb-16 pt-10 sm:px-8 sm:pb-20 sm:pt-12 lg:min-h-[36rem] lg:flex-row lg:items-center lg:py-12">
+          <FadeIn className="w-full min-w-0 max-w-full lg:max-w-lg">
             <h1 className="font-display text-[2.35rem] leading-[1.08] text-ink sm:text-5xl lg:text-[3.5rem]">
               Calgary & Cochrane Waste Disposal Services
             </h1>
@@ -119,6 +125,18 @@ export default function Home() {
                 Get a Free Quote
               </Link>
             </div>
+            <ul className="mt-8 grid w-full grid-cols-3 gap-2 lg:flex lg:w-auto lg:gap-2.5">
+              {heroPerks.map((perk) => (
+                <li
+                  key={perk}
+                  className="flex min-h-[2.75rem] min-w-0 items-center justify-center rounded-xl border border-line bg-white px-1 py-2 text-center lg:min-h-0 lg:px-3 lg:py-2"
+                >
+                  <span className="font-display text-[10px] font-semibold leading-tight text-forest lg:whitespace-nowrap lg:text-xs lg:leading-snug">
+                    {perk}
+                  </span>
+                </li>
+              ))}
+            </ul>
           </FadeIn>
 
           <FadeIn

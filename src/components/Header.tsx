@@ -166,12 +166,12 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Link
-            href="/#contact"
+          <a
+            href={site.phoneHref}
             className="hidden h-10 cursor-pointer items-center rounded-full border border-forest bg-forest px-4 text-sm font-medium text-white transition-colors hover:bg-white hover:text-forest lg:inline-flex"
           >
-            Free Quote
-          </Link>
+            {site.phone}
+          </a>
           <a
             href={site.customerPortalHref}
             className="hidden h-10 cursor-pointer items-center rounded-full border border-line px-4 text-sm font-medium text-ink transition-colors hover:border-forest hover:text-forest lg:inline-flex"
@@ -244,6 +244,14 @@ export function Header() {
             })}
             <div className="mt-4 flex flex-col gap-3">
               <a
+                href={site.phoneHref}
+                onClick={() => setOpen(false)}
+                className="inline-flex h-12 cursor-pointer items-center justify-center rounded-full border border-forest bg-forest text-base font-medium text-white transition-colors hover:bg-white hover:text-forest"
+                tabIndex={open ? undefined : -1}
+              >
+                {site.phone}
+              </a>
+              <a
                 href={site.customerPortalHref}
                 onClick={() => setOpen(false)}
                 className="inline-flex h-12 cursor-pointer items-center justify-center rounded-full border border-line bg-white text-base font-medium text-ink"
@@ -251,14 +259,6 @@ export function Header() {
               >
                 Account Login
               </a>
-              <Link
-                href="/#contact"
-                onClick={() => setOpen(false)}
-                className="inline-flex h-12 cursor-pointer items-center justify-center rounded-full border border-forest bg-forest text-base font-medium text-white transition-colors hover:bg-white hover:text-forest"
-                tabIndex={open ? undefined : -1}
-              >
-                Free Quote
-              </Link>
             </div>
           </nav>
         </div>
