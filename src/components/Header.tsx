@@ -233,7 +233,7 @@ export function Header() {
                     activateLink(linkKey(link.href));
                     setOpen(false);
                   }}
-                  className={`block w-full rounded-xl px-3 py-3 text-right text-lg font-medium transition-colors ${
+                  className={`block w-full rounded-xl px-3 py-3 text-left text-lg font-medium transition-colors ${
                     isActive ? "bg-white text-forest" : "text-ink hover:bg-line"
                   }`}
                   tabIndex={open ? undefined : -1}
