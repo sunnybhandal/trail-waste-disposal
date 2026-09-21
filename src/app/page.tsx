@@ -6,12 +6,6 @@ import { FadeIn } from "@/components/FadeIn";
 import { Faq } from "@/components/Faq";
 import { site } from "@/lib/site";
 
-const heroPerks = [
-  "No Hidden Fees",
-  "No Missed Pickups",
-  "Locally Owned",
-] as const;
-
 const howItWorksSteps = [
   {
     key: "needs",
@@ -93,14 +87,14 @@ export default function Home() {
         id="home"
         className="relative scroll-mt-24 bg-white lg:overflow-hidden"
       >
-        <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[72%] lg:block lg:w-[64%]">
+        <div className="pointer-events-none absolute inset-y-0 right-0 hidden h-full w-auto aspect-[1600/1108] lg:block">
           <Image
             src="/images/truckSide.png"
             alt="Trail Waste Disposal front-load garbage truck in Calgary"
             fill
             priority
-            className="object-contain object-right"
-            sizes="64vw"
+            className="object-cover object-right"
+            sizes="(min-width: 1024px) 55rem, 100vw"
           />
         </div>
         <div className="pointer-events-none absolute inset-0 hidden lg:block lg:bg-gradient-to-r lg:from-white lg:from-[44%] lg:via-white lg:via-[47%] lg:to-transparent lg:to-[55%]" />
@@ -125,18 +119,6 @@ export default function Home() {
                 Get a Free Quote
               </Link>
             </div>
-            <ul className="mt-8 grid w-full grid-cols-3 gap-2 lg:flex lg:w-auto lg:gap-2.5">
-              {heroPerks.map((perk) => (
-                <li
-                  key={perk}
-                  className="flex min-h-[2.75rem] min-w-0 items-center justify-center rounded-xl border border-line bg-white px-1 py-2 text-center lg:min-h-0 lg:px-3 lg:py-2"
-                >
-                  <span className="font-display text-[10px] font-semibold leading-tight text-forest lg:whitespace-nowrap lg:text-xs lg:leading-snug">
-                    {perk}
-                  </span>
-                </li>
-              ))}
-            </ul>
           </FadeIn>
 
           <FadeIn
