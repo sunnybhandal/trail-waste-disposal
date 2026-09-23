@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Barlow_Condensed, Geist, Poppins } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { JsonLd } from "@/components/JsonLd";
+import { localBusinessJsonLd } from "@/lib/json-ld";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -33,8 +35,7 @@ export const metadata: Metadata = {
     default: `${site.name} | Calgary & Cochrane Waste, Trash & Garbage Collection`,
     template: `%s | ${site.name}`,
   },
-  description:
-    "Commercial waste, trash, and garbage collection in Calgary, Cochrane, and surrounding areas. Front-load dumpsters, reliable pickup, and no hidden fees.",
+  description: site.description,
   keywords: [
     "waste disposal Calgary",
     "garbage collection Calgary",
@@ -43,7 +44,7 @@ export const metadata: Metadata = {
     "commercial dumpster service",
     "front-load dumpsters",
   ],
-  metadataBase: new URL("https://trailwastedisposal.ca"),
+  metadataBase: new URL(site.url),
   openGraph: {
     title: `${site.name} | Calgary Waste, Trash & Garbage Collection`,
     description:
@@ -59,7 +60,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${poppins.variable} ${barlowCondensed.variable} h-full antialiased`}
       suppressHydrationWarning
     >
+      <head>
+        <link rel="describedby" href="/llms.txt" />
+      </head>
       <body className="flex min-h-full flex-col bg-white text-ink" suppressHydrationWarning>
+        <JsonLd data={localBusinessJsonLd()} />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-forest focus:px-4 focus:py-2 focus:text-white"

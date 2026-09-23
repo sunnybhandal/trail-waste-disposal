@@ -1,12 +1,22 @@
 export const site = {
   name: "Trail Waste Disposal",
+  url: "https://trailwastedisposal.ca",
   tagline: "Show us your bill. We'll beat your current price.",
+  description:
+    "Commercial waste, trash, and garbage collection in Calgary, Cochrane, and surrounding areas. Front-load dumpsters, reliable pickup, and no hidden fees.",
   phone: "403-253-2155",
   phoneHref: "tel:+14032532155",
   email: "info@trailwaste.ca",
   emailHref: "mailto:info@trailwaste.ca",
   address: "8499 Horton Rd. SW, Calgary, AB, T2V 5J3",
   addressLines: ["8499 Horton Rd. SW", "Calgary, AB T2V 5J3"],
+  postalAddress: {
+    streetAddress: "8499 Horton Rd. SW",
+    addressLocality: "Calgary",
+    addressRegion: "AB",
+    postalCode: "T2V 5J3",
+    addressCountry: "CA",
+  },
   languages: ["English", "Punjabi", "Hindi"],
   customerPortalHref: "https://customer.trailbottle.app/waste/sign-in",
   sisterCompany: {

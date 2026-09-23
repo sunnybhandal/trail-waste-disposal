@@ -4,6 +4,8 @@ import { AboutSection } from "@/components/AboutSection";
 import { ContactSection } from "@/components/ContactSection";
 import { FadeIn } from "@/components/FadeIn";
 import { Faq } from "@/components/Faq";
+import { JsonLd } from "@/components/JsonLd";
+import { faqPageJsonLd } from "@/lib/json-ld";
 import { site } from "@/lib/site";
 
 const howItWorksSteps = [
@@ -83,6 +85,7 @@ const howItWorksSteps = [
 export default function Home() {
   return (
     <>
+      <JsonLd data={faqPageJsonLd()} />
       <section
         id="home"
         className="relative scroll-mt-24 bg-white lg:overflow-hidden"
