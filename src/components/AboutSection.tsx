@@ -10,7 +10,7 @@ export function AboutSection() {
             Who are we?
           </p>
           <h2 className="mt-4 font-display text-4xl leading-tight text-ink sm:text-5xl">
-            A Local Calgary Waste Company You Can Trust
+            A Local Calgary Garbage Collection Company You Can Trust
           </h2>
           <p className="mt-5 font-display text-xl leading-snug text-forest sm:text-2xl">
             We’re small enough to care, and experienced enough to get the job
@@ -21,7 +21,7 @@ export function AboutSection() {
             in Calgary. Built on hard work, honest service, and treating
             customers the way they deserve to be treated. We started Trail
             Waste Disposal after seeing how common missed pickups, extra fees,
-            and poor customer service had become in commercial waste
+            and poor customer service had become in commercial garbage
             collection. We built this company to be the opposite: reliable,
             transparent, fairly priced, and backed by a team who truly cares.
           </p>

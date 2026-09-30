@@ -6,6 +6,9 @@ import {
   site,
 } from "@/lib/site";
 
+const businessId = `${site.url}/#business`;
+const mapsUrl = `https://maps.google.com/?q=${encodeURIComponent(site.address)}`;
+
 export function faqAnswerText(item: (typeof faqs)[number]) {
   if ("link" in item && item.link) {
     return item.answer.replace(/\{link\}/g, item.link.label);
@@ -16,8 +19,8 @@ export function faqAnswerText(item: (typeof faqs)[number]) {
 export function localBusinessJsonLd() {
   return {
     "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "WasteManagement"],
-    "@id": `${site.url}/#business`,
+    "@type": "LocalBusiness",
+    "@id": businessId,
     name: site.name,
     legalName: site.name,
     url: site.url,
@@ -27,6 +30,8 @@ export function localBusinessJsonLd() {
     email: site.email,
     image: `${site.url}/images/truckSide.png`,
     logo: `${site.url}/images/trail-waste-globe.png`,
+    currenciesAccepted: "CAD",
+    hasMap: mapsUrl,
     address: {
       "@type": "PostalAddress",
       ...site.postalAddress,
@@ -36,7 +41,23 @@ export function localBusinessJsonLd() {
       { "@type": "City", name: "Cochrane" },
     ],
     knowsLanguage: [...site.languages],
-    currenciesAccepted: "CAD",
+    knowsAbout: [
+      "Commercial dumpster services",
+      "Garbage collection",
+      "Dumpster pickup",
+      "Commercial garbage services",
+      "Front-load dumpsters",
+      "Recycling collection",
+      "Organics collection",
+    ],
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: site.phoneHref.replace("tel:", ""),
+      email: site.email,
+      contactType: "customer service",
+      areaServed: ["Calgary", "Cochrane"],
+      availableLanguage: [...site.languages],
+    },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Commercial dumpster and waste collection services",
@@ -46,7 +67,9 @@ export function localBusinessJsonLd() {
           itemOffered: {
             "@type": "Service",
             name: `Commercial ${serviceType.toLowerCase()} collection`,
+            serviceType: `${serviceType} collection`,
             areaServed: site.serviceArea,
+            provider: { "@id": businessId },
             audience: {
               "@type": "BusinessAudience",
               audienceType: industries.join(", "),
@@ -58,8 +81,10 @@ export function localBusinessJsonLd() {
           itemOffered: {
             "@type": "Service",
             name: `${size.name} front-load dumpster`,
+            serviceType: "Dumpster service",
             description: `${size.name} dumpster, ${size.dimensions.join(", ")}, holds ${size.holds}. Recommended for ${size.recommendedUse.toLowerCase()}.`,
             areaServed: site.serviceArea,
+            provider: { "@id": businessId },
           },
         })),
       ],
@@ -73,6 +98,7 @@ export function faqPageJsonLd() {
     "@type": "FAQPage",
     "@id": `${site.url}/#faq`,
     url: `${site.url}/#faq`,
+    about: { "@id": businessId },
     mainEntity: faqs.map((item) => ({
       "@type": "Question",
       name: item.question,

@@ -100,19 +100,20 @@ export default function Home() {
             sizes="(min-width: 1024px) 55rem, 100vw"
           />
         </div>
-        <div className="pointer-events-none absolute inset-0 hidden lg:block lg:bg-gradient-to-r lg:from-white lg:from-[44%] lg:via-white lg:via-[47%] lg:to-transparent lg:to-[55%]" />
+        <div className="pointer-events-none absolute inset-0 hidden lg:block lg:bg-gradient-to-r lg:from-white lg:from-[48%] lg:via-white lg:via-[52%] lg:to-transparent lg:to-[62%]" />
 
-        <div className="relative mx-auto flex w-full max-w-6xl flex-col items-stretch px-5 pb-16 pt-10 sm:px-8 sm:pb-20 sm:pt-12 lg:min-h-[36rem] lg:flex-row lg:items-center lg:py-12">
-          <FadeIn className="w-full min-w-0 max-w-full lg:max-w-lg">
-            <h1 className="font-display text-[2.35rem] leading-[1.08] text-ink sm:text-5xl lg:text-[3.5rem]">
-              Calgary & Cochrane Waste Disposal Services
+        <div className="relative mx-auto flex w-full max-w-6xl flex-col items-stretch px-4 pb-16 pt-10 min-[410px]:px-5 sm:px-8 sm:pb-20 sm:pt-12 lg:min-h-[36rem] lg:flex-row lg:items-center lg:py-12">
+          <FadeIn className="w-full min-w-0 max-w-full lg:max-w-2xl">
+            <h1 className="font-display text-[1.9rem] leading-[1.12] text-ink min-[410px]:text-[2.35rem] sm:text-5xl lg:text-[3.15rem]">
+              Commercial Garbage Collection{" "}
+              <span className="sm:block">in Calgary & Cochrane</span>
             </h1>
             <p className="mt-5 max-w-lg font-display text-2xl leading-snug text-forest sm:text-3xl">
               Show us your bill and we’ll beat your current price.
             </p>
             <p className="mt-6 max-w-md text-base leading-7 text-stone sm:text-lg">
-              Commercial garbage and recycling dumpsters for businesses and
-              multi-unit properties.
+              Front-load dumpsters for commercial waste, garbage, and recycling.
+              Serving businesses and multi-unit properties.
             </p>
             <div className="mt-8">
               <Link
@@ -151,7 +152,7 @@ export default function Home() {
                 How it Works
               </p>
               <h2 className="mt-4 font-display text-4xl leading-tight text-ink sm:text-5xl">
-                Calgary Waste Collection Services
+                Front-Load Dumpster Service for Calgary Businesses
               </h2>
             </FadeIn>
             <ol className="mt-10">
@@ -179,10 +180,10 @@ export default function Home() {
             </ol>
             <FadeIn delay={80}>
               <p className="mt-8 text-base leading-8 text-stone sm:text-lg">
-                Whether you manage a business, apartment complex, or multi-unit
-                property in Calgary or Cochrane, our team collects your waste on
-                time, every time. We guarantee no disruptions, no missed pickups,
-                and no hidden fees.
+                Whether you manage a restaurant, apartment complex, warehouse,
+                or commercial property in Calgary or Cochrane, we collect your
+                garbage on time, every time. Front-load dumpster collection with
+                no disruptions, no missed pickups, and no hidden fees.
               </p>
               <p className="mt-8 font-display text-xl font-medium text-ink sm:text-2xl">
                 Ready to discuss your options?

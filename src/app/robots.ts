@@ -33,6 +33,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: aiCrawlers,
         allow: "/",
+        disallow: "/api/",
       },
     ],
     sitemap: `${site.url}/sitemap.xml`,

@@ -3,9 +3,9 @@ import { CareersForm } from "@/components/CareersForm";
 import { careerPerks, careerRequirements, site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Careers in Calgary Waste Collection",
+  title: "Careers in Calgary Garbage Collection",
   description:
-    "Join Trail Waste Disposal for waste and garbage collection jobs in Calgary. Steady local work, competitive wages, and room to grow.",
+    "Join Trail Waste Disposal for commercial garbage collection jobs in Calgary. Steady local work, competitive wages, and room to grow.",
 };
 
 export default function CareersPage() {
@@ -13,11 +13,11 @@ export default function CareersPage() {
     <section className="mx-auto grid max-w-6xl gap-12 px-5 py-12 sm:px-8 sm:py-20 lg:grid-cols-2">
       <div>
         <h1 className="font-display text-4xl leading-tight text-ink sm:text-5xl">
-          Careers in Calgary Waste Collection
+          Careers in Calgary Garbage Collection
         </h1>
         <p className="mt-6 text-base leading-8 text-stone sm:text-lg">
           Trail Waste Disposal is always looking for dependable, hardworking
-          people to join our growing waste and garbage collection team in
+          people to join our growing commercial garbage collection team in
           Calgary.
         </p>
         <div className="mt-8 rounded-2xl border border-line bg-cream/70 px-5 py-5">

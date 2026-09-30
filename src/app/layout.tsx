@@ -32,23 +32,28 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: `${site.name} | Calgary & Cochrane Waste, Trash & Garbage Collection`,
+    default: `${site.name} | Calgary & Cochrane Waste, Garbage, and Recycling Collection`,
     template: `%s | ${site.name}`,
   },
   description: site.description,
   keywords: [
-    "waste disposal Calgary",
-    "garbage collection Calgary",
-    "trash pickup Calgary",
-    "waste management Cochrane",
-    "commercial dumpster service",
-    "front-load dumpsters",
+    "commercial garbage collection Calgary",
+    "commercial dumpster service Calgary",
+    "front load dumpster Calgary",
+    "commercial waste collection Calgary",
+    "garbage collection Cochrane",
+    "commercial recycling Calgary",
   ],
   metadataBase: new URL(site.url),
+  alternates: {
+    types: {
+      "text/plain": "/llms.txt",
+    },
+  },
   openGraph: {
-    title: `${site.name} | Calgary Waste, Trash & Garbage Collection`,
+    title: `${site.name} | Calgary & Cochrane Waste, Garbage, and Recycling Collection`,
     description:
-      "Local commercial waste, trash, and garbage pickup for businesses and multi-unit properties in Calgary and Cochrane.",
+      "Commercial garbage collection and front-load dumpster service for businesses and multi-unit properties in Calgary and Cochrane.",
     images: ["/images/hero.jpg"],
   },
 };
@@ -60,9 +65,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${poppins.variable} ${barlowCondensed.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <head>
-        <link rel="describedby" href="/llms.txt" />
-      </head>
       <body className="flex min-h-full flex-col bg-white text-ink" suppressHydrationWarning>
         <JsonLd data={localBusinessJsonLd()} />
         <a

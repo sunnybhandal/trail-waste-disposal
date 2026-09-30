@@ -3,7 +3,7 @@ export const site = {
   url: "https://trailwastedisposal.ca",
   tagline: "Show us your bill. We'll beat your current price.",
   description:
-    "Commercial waste, trash, and garbage collection in Calgary, Cochrane, and surrounding areas. Front-load dumpsters, reliable pickup, and no hidden fees.",
+    "Commercial garbage collection, recycling, and front-load dumpster service in Calgary, Cochrane, and surrounding areas. Reliable pickup and no hidden fees.",
   phone: "403-253-2155",
   phoneHref: "tel:+14032532155",
   email: "info@trailwaste.ca",
