@@ -4,6 +4,7 @@ import { FormEvent, useEffect, useState } from "react";
 import { EmailField, hasEmailFormat } from "@/components/EmailField";
 import { DumpsterSizeGuide } from "@/components/DumpsterSizeGuide";
 import { SelectField } from "@/components/SelectField";
+import { CONTACT_FORM_NAME, submitNetlifyForm } from "@/lib/netlify-form";
 import { formatPhone } from "@/lib/phone";
 import {
   businessTypes,
@@ -100,18 +101,9 @@ export function ContactForm() {
     setMessage("");
 
     const form = event.currentTarget;
-    const data = Object.fromEntries(new FormData(form).entries());
 
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-
-      if (!response.ok) {
-        throw new Error("Request failed");
-      }
+      await submitNetlifyForm(form);
 
       form.reset();
       setName("");
@@ -139,7 +131,22 @@ export function ContactForm() {
   }
 
   return (
-    <form noValidate onSubmit={onSubmit} className="grid gap-4">
+    <form
+      name={CONTACT_FORM_NAME}
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      noValidate
+      onSubmit={onSubmit}
+      className="grid gap-4"
+    >
+      <input type="hidden" name="form-name" value={CONTACT_FORM_NAME} />
+      <p className="sr-only" aria-hidden="true">
+        <label>
+          Don’t fill this out if you’re human:{" "}
+          <input name="bot-field" tabIndex={-1} autoComplete="off" />
+        </label>
+      </p>
       <div className="grid grid-cols-2 gap-4">
         <div className="min-w-0">
           <label className="block text-sm font-medium text-ink">
