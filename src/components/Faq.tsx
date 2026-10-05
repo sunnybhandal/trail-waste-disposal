@@ -1,27 +1,11 @@
 "use client";
 
-import { useState, type MouseEvent } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { DumpsterSizeGuide } from "@/components/DumpsterSizeGuide";
 import { FadeIn } from "@/components/FadeIn";
+import { SectionLink } from "@/components/SectionLink";
 import { faqs } from "@/lib/site";
-
-function sectionId(href: string) {
-  const hashIndex = href.indexOf("#");
-  return hashIndex >= 0 ? href.slice(hashIndex + 1) : "";
-}
-
-function scrollToSection(event: MouseEvent<HTMLAnchorElement>, href: string) {
-  const id = sectionId(href);
-  const el = id ? document.getElementById(id) : null;
-  if (!el) {
-    return;
-  }
-
-  event.preventDefault();
-  el.scrollIntoView({ behavior: "smooth" });
-  window.history.replaceState(null, "", `/#${id}`);
-}
 
 function FaqAnswer({
   item,
@@ -32,8 +16,8 @@ function FaqAnswer({
 }) {
   if ("link" in item && item.link) {
     const [before, after] = item.answer.split("{link}");
-    const hashId = sectionId(item.link.href);
-    const isSectionLink = Boolean(hashId) && item.link.href !== "#dumpster-size-guide";
+    const isSectionLink =
+      item.link.href.includes("#") && item.link.href !== "#dumpster-size-guide";
     const isInternal = item.link.href.startsWith("/");
     const linkClass =
       "font-medium text-forest underline decoration-line underline-offset-4 hover:decoration-forest";
@@ -43,13 +27,9 @@ function FaqAnswer({
         {item.link.label}
       </DumpsterSizeGuide>
     ) : isSectionLink ? (
-      <a
-        href={`#${hashId}`}
-        className={linkClass}
-        onClick={(event) => scrollToSection(event, item.link.href)}
-      >
+      <SectionLink href={item.link.href} className={linkClass}>
         {item.link.label}
-      </a>
+      </SectionLink>
     ) : isInternal ? (
       <Link href={item.link.href} className={linkClass}>
         {item.link.label}

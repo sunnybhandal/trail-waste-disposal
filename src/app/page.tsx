@@ -5,6 +5,7 @@ import { ContactSection } from "@/components/ContactSection";
 import { FadeIn } from "@/components/FadeIn";
 import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
+import { SectionLink } from "@/components/SectionLink";
 import { faqPageJsonLd } from "@/lib/json-ld";
 import { site } from "@/lib/site";
 
@@ -14,12 +15,12 @@ const howItWorksSteps = [
     title: (
       <>
         Tell us about your waste collection needs by filling out this{" "}
-        <Link
+        <SectionLink
           href="/#contact"
           className="underline decoration-forest/40 underline-offset-4 transition hover:text-forest-deep hover:decoration-forest-deep"
         >
           form
-        </Link>
+        </SectionLink>
       </>
     ),
     icon: (
