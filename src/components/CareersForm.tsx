@@ -2,16 +2,20 @@
 
 import { FormEvent, useRef, useState } from "react";
 import { EmailField, hasEmailFormat } from "@/components/EmailField";
+import { CAREERS_FORM_NAME, submitNetlifyForm } from "@/lib/netlify-form";
 import { formatPhone } from "@/lib/phone";
 
 const fieldClass =
   "mt-2 w-full rounded-xl border border-line bg-white px-4 py-3 text-base text-ink outline-none transition focus:border-forest";
+
+const maxResumeBytes = 5 * 1024 * 1024;
 
 export function CareersForm() {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [fileName, setFileName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
+  const [fileError, setFileError] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">(
     "idle",
   );
@@ -22,21 +26,29 @@ export function CareersForm() {
     if (email.length > 0 && !hasEmailFormat(email)) {
       return;
     }
+
+    const resume = fileInputRef.current?.files?.[0];
+    if (!resume) {
+      setFileError("Please choose a resume file");
+      return;
+    }
+    if (resume.size > maxResumeBytes) {
+      setFileError("Resume must be 5MB or smaller");
+      return;
+    }
+
+    setFileError("");
     setStatus("sending");
     setMessage("");
 
     const form = event.currentTarget;
-    const data = new FormData(form);
 
     try {
-      const response = await fetch("/api/careers", {
-        method: "POST",
-        body: data,
+      await submitNetlifyForm(form, {
+        formName: CAREERS_FORM_NAME,
+        localEndpoint: "/api/careers",
+        withFiles: true,
       });
-
-      if (!response.ok) {
-        throw new Error("Request failed");
-      }
 
       form.reset();
       setFileName("");
@@ -51,7 +63,22 @@ export function CareersForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="space-y-5">
+    <form
+      name={CAREERS_FORM_NAME}
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      encType="multipart/form-data"
+      onSubmit={onSubmit}
+      className="space-y-5"
+    >
+      <input type="hidden" name="form-name" value={CAREERS_FORM_NAME} />
+      <p className="sr-only" aria-hidden="true">
+        <label>
+          Don’t fill this out if you’re human:{" "}
+          <input name="bot-field" tabIndex={-1} autoComplete="off" />
+        </label>
+      </p>
       <label className="block text-sm font-medium text-ink">
         Name
         <input
@@ -95,6 +122,7 @@ export function CareersForm() {
             className="sr-only"
             onChange={(event) => {
               setFileName(event.target.files?.[0]?.name ?? "");
+              setFileError("");
             }}
           />
           <button
@@ -112,6 +140,11 @@ export function CareersForm() {
             </p>
           )}
         </div>
+        {fileError ? (
+          <p role="alert" className="mt-2 text-sm text-red-600">
+            {fileError}
+          </p>
+        ) : null}
       </div>
       <button
         type="submit"

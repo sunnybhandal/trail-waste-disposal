@@ -129,7 +129,7 @@ export const faqs = [
     question: "How do I get started?",
     answer:
       "Getting started is easy. Tell us about your business, property, and waste collection needs through our {link}. We’ll review your requirements, confirm availability, and work with you to establish a pickup schedule that fits your property.",
-    link: { href: "/#contact", label: "contact form" },
+    link: { href: "/#contact", label: "Contact Form" },
   },
   {
     question: "What does your pricing structure look like?",

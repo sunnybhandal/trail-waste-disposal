@@ -1,6 +1,13 @@
 export const CONTACT_FORM_NAME = "contact";
+export const CAREERS_FORM_NAME = "careers";
 
-export function encodeNetlifyForm(form: HTMLFormElement) {
+type SubmitOptions = {
+  formName: string;
+  localEndpoint: string;
+  withFiles?: boolean;
+};
+
+function encodeNetlifyForm(form: HTMLFormElement, formName: string) {
   const params = new URLSearchParams();
 
   for (const [key, value] of new FormData(form).entries()) {
@@ -10,21 +17,36 @@ export function encodeNetlifyForm(form: HTMLFormElement) {
   }
 
   if (!params.get("form-name")) {
-    params.set("form-name", CONTACT_FORM_NAME);
+    params.set("form-name", formName);
   }
 
   return params.toString();
 }
 
-export async function submitNetlifyForm(form: HTMLFormElement) {
+function formDataWithName(form: HTMLFormElement, formName: string) {
+  const data = new FormData(form);
+  if (!data.get("form-name")) {
+    data.set("form-name", formName);
+  }
+  return data;
+}
+
+export async function submitNetlifyForm(
+  form: HTMLFormElement,
+  { formName, localEndpoint, withFiles = false }: SubmitOptions,
+) {
   const local = window.location.hostname === "localhost";
+  const data = formDataWithName(form, formName);
 
   if (local) {
-    const data = Object.fromEntries(new FormData(form).entries());
-    const response = await fetch("/api/contact", {
+    const response = await fetch(localEndpoint, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
+      ...(withFiles
+        ? { body: data }
+        : {
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(Object.fromEntries(data.entries())),
+          }),
     });
 
     if (!response.ok) {
@@ -36,8 +58,12 @@ export async function submitNetlifyForm(form: HTMLFormElement) {
 
   const response = await fetch("/__forms.html", {
     method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: encodeNetlifyForm(form),
+    ...(withFiles
+      ? { body: data }
+      : {
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: encodeNetlifyForm(form, formName),
+        }),
   });
 
   if (!response.ok) {

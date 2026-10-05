@@ -103,7 +103,10 @@ export function ContactForm() {
     const form = event.currentTarget;
 
     try {
-      await submitNetlifyForm(form);
+      await submitNetlifyForm(form, {
+        formName: CONTACT_FORM_NAME,
+        localEndpoint: "/api/contact",
+      });
 
       form.reset();
       setName("");
