@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { AboutSection } from "@/components/AboutSection";
 import { ContactSection } from "@/components/ContactSection";
 import { FadeIn } from "@/components/FadeIn";
@@ -117,12 +116,12 @@ export default function Home() {
               Serving businesses and multi-unit properties.
             </p>
             <div className="mt-8">
-              <Link
+              <SectionLink
                 href="/#contact"
                 className="flex h-12 w-full cursor-pointer items-center justify-center rounded-full border border-forest bg-forest px-6 text-base font-medium text-white transition-colors hover:bg-white hover:text-forest sm:inline-flex sm:w-auto"
               >
                 Get a Free Quote
-              </Link>
+              </SectionLink>
             </div>
           </FadeIn>
 
@@ -190,12 +189,12 @@ export default function Home() {
                 Ready to discuss your options?
               </p>
               <div className="mt-5">
-                <Link
+                <SectionLink
                   href="/#contact"
                   className="flex h-12 w-full cursor-pointer items-center justify-center rounded-full border border-forest bg-forest px-6 text-base font-medium text-white transition-colors hover:bg-white hover:text-forest sm:inline-flex sm:w-auto"
                 >
                   Contact us
-                </Link>
+                </SectionLink>
               </div>
             </FadeIn>
           </div>

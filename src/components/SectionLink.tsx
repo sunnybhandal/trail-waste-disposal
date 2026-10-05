@@ -23,7 +23,10 @@ export function SectionLink({ href, className, children }: SectionLinkProps) {
     }
 
     event.preventDefault();
-    el.scrollIntoView({ behavior: "smooth" });
+    const header = document.querySelector("header");
+    const offset = header instanceof HTMLElement ? header.offsetHeight : 0;
+    const top = el.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
     window.history.replaceState(null, "", `/#${id}`);
   }
 
