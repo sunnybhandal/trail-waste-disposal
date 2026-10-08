@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     title: `Calgary & Cochrane Waste, Garbage, and Recycling Collection | ${site.name}`,
     description:
       "Commercial garbage collection and front-load dumpster service for businesses and multi-unit properties in Calgary and Cochrane.",
-    images: ["/images/hero.jpg"],
+    images: ["/images/truckSide.png"],
   },
 };
 
