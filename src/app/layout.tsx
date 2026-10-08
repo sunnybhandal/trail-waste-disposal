@@ -32,8 +32,8 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: `${site.name} | Calgary & Cochrane Waste, Garbage, and Recycling Collection`,
-    template: `%s | ${site.name}`,
+    default: `Calgary & Cochrane Waste, Garbage, and Recycling Collection | ${site.name}`,
+    template: `%s | Calgary & Cochrane Waste, Garbage, and Recycling Collection`,
   },
   description: site.description,
   keywords: [
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: `${site.name} | Calgary & Cochrane Waste, Garbage, and Recycling Collection`,
+    title: `Calgary & Cochrane Waste, Garbage, and Recycling Collection | ${site.name}`,
     description:
       "Commercial garbage collection and front-load dumpster service for businesses and multi-unit properties in Calgary and Cochrane.",
     images: ["/images/hero.jpg"],
