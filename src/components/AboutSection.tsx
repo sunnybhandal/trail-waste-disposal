@@ -3,7 +3,7 @@ import { FadeIn } from "@/components/FadeIn";
 
 export function AboutSection() {
   return (
-    <section id="about" className="scroll-mt-24">
+    <section id="about" className="scroll-mt-24 border-t border-line bg-cream">
       <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 py-16 sm:px-8 sm:py-24 lg:grid-cols-2 lg:gap-14">
         <FadeIn>
           <p className="text-xs font-medium uppercase tracking-[0.18em] text-sage">
