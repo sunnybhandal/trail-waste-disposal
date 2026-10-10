@@ -12,12 +12,8 @@ export function ContactSection() {
             Contact us
           </p>
           <h2 className="mt-4 font-display text-4xl leading-tight text-ink sm:text-5xl">
-            Get a Free Quote for Commercial Garbage Collection
+            Get a Free Quote for our Commercial Waste Services
           </h2>
-          <p className="mt-5 max-w-md text-base leading-7 text-stone sm:text-lg">
-            Commercial dumpster service in Calgary, Cochrane, and surrounding
-            areas.
-          </p>
           <address className="mt-8 space-y-1 text-base not-italic leading-7 text-stone">
             <p>{site.addressLines.join(", ")}</p>
             <p>

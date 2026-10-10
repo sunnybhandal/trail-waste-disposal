@@ -10,13 +10,13 @@ export function AboutSection() {
             Who are we?
           </p>
           <h2 className="mt-4 font-display text-4xl leading-tight text-ink sm:text-5xl">
-            A Local Calgary Garbage Collection Company You Can Trust
+            A Local Calgary Waste Collection Company You Can Trust
           </h2>
           <p className="mt-5 font-display text-xl leading-snug text-forest sm:text-2xl">
             We’re small enough to care, and experienced enough to get the job
             done right.
           </p>
-          <p className="mt-8 text-base leading-8 text-stone sm:text-lg">
+          <p className="mt-8 text-base leading-8 text-ink sm:text-lg">
             For more than 20 years, we owned and operated Trail Bottle Depot
             in Calgary. Built on hard work, honest service, and treating
             customers the way they deserve to be treated. We started Trail

@@ -319,7 +319,7 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={status === "sending"}
-          className="inline-flex h-12 w-full items-center justify-center rounded-full border border-forest bg-forest text-base font-medium text-white transition-colors hover:bg-white hover:text-forest disabled:opacity-70"
+          className="inline-flex h-12 w-full items-center justify-center rounded-full border border-forest bg-forest text-base font-medium text-white transition-colors hover:bg-cream hover:text-forest disabled:opacity-70"
         >
           {status === "sending" ? "Sending…" : "Send Details"}
         </button>

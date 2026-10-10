@@ -105,7 +105,7 @@ export default function Home() {
         <div className="relative mx-auto flex w-full max-w-6xl flex-col items-stretch px-4 pb-16 pt-10 min-[410px]:px-5 sm:px-8 sm:pb-20 sm:pt-12 lg:min-h-[36rem] lg:flex-row lg:items-center lg:py-12">
           <FadeIn className="w-full min-w-0 max-w-full lg:max-w-2xl">
             <h1 className="font-display text-[1.9rem] leading-[1.12] text-ink min-[410px]:text-[2.35rem] sm:text-5xl lg:text-[3.15rem]">
-              Commercial Garbage Collection{" "}
+              Commercial Waste Collection{" "}
               <span className="sm:block">in Calgary & Cochrane</span>
             </h1>
             <p className="mt-5 max-w-lg font-display text-2xl leading-snug text-forest sm:text-3xl">
@@ -152,7 +152,7 @@ export default function Home() {
                 How it Works
               </p>
               <h2 className="mt-4 font-display text-4xl leading-tight text-ink sm:text-5xl">
-                Front-Load Dumpster Service for Calgary Businesses
+                Waste, Garbage, and Recycling Collection Service for Calgary Businesses
               </h2>
             </FadeIn>
             <ol className="mt-10">
@@ -179,7 +179,7 @@ export default function Home() {
               ))}
             </ol>
             <FadeIn delay={80}>
-              <p className="mt-8 text-base leading-8 text-stone sm:text-lg">
+              <p className="mt-8 text-base leading-8 text-ink sm:text-lg">
                 Whether you manage a restaurant, apartment complex, warehouse,
                 or commercial property in Calgary or Cochrane, we collect your
                 garbage on time, every time. Front-load dumpster collection with
@@ -191,7 +191,7 @@ export default function Home() {
               <div className="mt-5">
                 <SectionLink
                   href="/#contact"
-                  className="flex h-12 w-full cursor-pointer items-center justify-center rounded-full border border-forest bg-forest px-6 text-base font-medium text-white transition-colors hover:bg-white hover:text-forest sm:inline-flex sm:w-auto"
+                  className="flex h-12 w-full cursor-pointer items-center justify-center rounded-full border border-forest bg-forest px-6 text-base font-medium text-white transition-colors hover:bg-cream hover:text-forest sm:inline-flex sm:w-auto"
                 >
                   Contact us
                 </SectionLink>

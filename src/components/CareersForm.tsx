@@ -128,7 +128,7 @@ export function CareersForm() {
           <button
             type="button"
             onClick={() => fileInputRef.current?.click()}
-            className="cursor-pointer rounded-full border border-forest bg-forest px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-white hover:text-forest"
+            className="cursor-pointer rounded-full border border-forest bg-forest px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-cream hover:text-forest"
           >
             Choose File
           </button>

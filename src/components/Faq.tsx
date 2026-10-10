@@ -59,7 +59,7 @@ export function Faq() {
       <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
         <FadeIn>
           <h2 className="font-display text-4xl leading-tight text-ink sm:text-5xl">
-            Dumpster Services FAQ
+            Frequently Asked Questions
           </h2>
         </FadeIn>
 

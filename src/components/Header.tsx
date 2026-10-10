@@ -174,7 +174,7 @@ export function Header() {
           </a>
           <a
             href={site.customerPortalHref}
-            className="hidden h-10 cursor-pointer items-center rounded-full border border-line px-4 text-sm font-medium text-ink transition-colors hover:border-forest hover:text-forest lg:inline-flex"
+            className="hidden h-10 cursor-pointer items-center rounded-full border border-stone px-4 text-sm font-medium text-ink transition-colors hover:border-forest hover:text-forest lg:inline-flex"
           >
             Account Login
           </a>
@@ -246,7 +246,7 @@ export function Header() {
               <a
                 href={site.phoneHref}
                 onClick={() => setOpen(false)}
-                className="inline-flex h-12 cursor-pointer items-center justify-center rounded-full border border-forest bg-forest text-base font-medium text-white transition-colors hover:bg-white hover:text-forest"
+                className="inline-flex h-12 cursor-pointer items-center justify-center rounded-full border border-forest bg-forest text-base font-medium text-white transition-colors hover:bg-cream hover:text-forest"
                 tabIndex={open ? undefined : -1}
               >
                 {site.phone}
@@ -254,7 +254,7 @@ export function Header() {
               <a
                 href={site.customerPortalHref}
                 onClick={() => setOpen(false)}
-                className="inline-flex h-12 cursor-pointer items-center justify-center rounded-full border border-line bg-white text-base font-medium text-ink"
+                className="inline-flex h-12 cursor-pointer items-center justify-center rounded-full border border-stone bg-white text-base font-medium text-ink"
                 tabIndex={open ? undefined : -1}
               >
                 Account Login
