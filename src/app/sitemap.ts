@@ -11,12 +11,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       images: [`${site.url}/images/truckSide.png`],
     },
     {
-      url: `${site.url}/careers`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    {
       url: `${site.url}/privacy-policy`,
       lastModified: new Date(),
       changeFrequency: "yearly",

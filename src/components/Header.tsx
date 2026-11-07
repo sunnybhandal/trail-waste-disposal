@@ -65,11 +65,6 @@ export function Header() {
   }, []);
 
   useEffect(() => {
-    if (pathname === "/careers") {
-      setActive("careers");
-      return;
-    }
-
     if (pathname !== "/") {
       setActive("");
       return;

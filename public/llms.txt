@@ -30,7 +30,6 @@ FAQ:
 ## Pages
 
 - [Home](https://trailwastedisposal.ca): Overview, quote form, about, and FAQ
-- [Careers](https://trailwastedisposal.ca/careers): Waste and garbage collection jobs in Calgary
 - [Privacy Policy](https://trailwastedisposal.ca/privacy-policy): How personal information is collected and used
 - [Terms & Conditions](https://trailwastedisposal.ca/terms-of-use): Terms for using the website
 

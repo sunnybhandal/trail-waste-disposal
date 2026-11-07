@@ -20,23 +20,23 @@ export default function CareersPage() {
           people to join our growing commercial garbage collection team in
           Calgary.
         </p>
-        <div className="mt-8 rounded-2xl border border-line bg-cream/70 px-5 py-5">
-          <p className="text-xs font-medium uppercase tracking-[0.16em] text-sage">
-            What we offer
-          </p>
-          <ul className="mt-3 space-y-2 text-ink">
-            {careerPerks.map((perk) => (
-              <li key={perk}>{perk}</li>
-            ))}
-          </ul>
-        </div>
-        <div className="mt-4 rounded-2xl border border-line bg-white px-5 py-5">
+        <div className="mt-8 rounded-2xl border border-line bg-white px-5 py-5">
           <p className="text-xs font-medium uppercase tracking-[0.16em] text-sage">
             Basic requirements
           </p>
           <ul className="mt-3 space-y-2 text-ink">
             {careerRequirements.map((requirement) => (
               <li key={requirement}>{requirement}</li>
+            ))}
+          </ul>
+        </div>
+        <div className="mt-4 rounded-2xl border border-line bg-cream/70 px-5 py-5">
+          <p className="text-xs font-medium uppercase tracking-[0.16em] text-sage">
+            What we offer
+          </p>
+          <ul className="mt-3 space-y-2 text-ink">
+            {careerPerks.map((perk) => (
+              <li key={perk}>{perk}</li>
             ))}
           </ul>
         </div>
