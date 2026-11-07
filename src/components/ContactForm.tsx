@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useEffect, useLayoutEffect, useState } from "react";
 import { EmailField, hasEmailFormat } from "@/components/EmailField";
 import { DumpsterSizeGuide } from "@/components/DumpsterSizeGuide";
 import { SelectField } from "@/components/SelectField";
@@ -55,6 +55,16 @@ export function ContactForm() {
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  useLayoutEffect(() => {
+    if (!mounted) {
+      return;
+    }
+
+    const id = window.location.hash.slice(1);
+    const el = id ? document.getElementById(id) : null;
+    el?.scrollIntoView();
+  }, [mounted]);
 
   function toggleSelect(selectName: string, open: boolean) {
     setOpenSelect(open ? selectName : null);
